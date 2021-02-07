@@ -1,0 +1,429 @@
+\section*{Vectors}
+
+\subsection*{1A-1}
+\problem{Find the magnitude and direction of the vectors}
+    
+\subsubsection*{a)}
+\problem{$\vec{i} + \vec{j} + \vec{k}$}
+
+        \begin{align*}
+            &= <1, 0, 0> + <0,1,0> + <0,0,1>\\
+            &= <1,1,1>
+        \end{align*}
+
+        $\text{dir} \ \vec{A} = \frac{\vec{A}}{|\vec{A}|}$
+
+        \begin{align*}
+            &= \frac{<1,1,1>}{\sqrt{3}}\\
+            &= <\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}>
+        \end{align*}
+
+\subsubsection*{b)}
+\problem{$2\vec{i} - \vec{j} + 2\vec{k}$}
+
+    \begin{align*}
+        &= <2, 0, 0> - <0,1,0> + <0,0,2>\\
+        &= <2,-1,2>\\
+        &= \frac{<2,-1,2>}{\sqrt{2^2 + 1 + 2^2}}\\
+        &= \frac{<2,-1,2>}{\sqrt{4 + 1 + 4}}\\
+        &= \frac{<2,-1,2>}{\sqrt{9}}\\
+        &= \frac{<2,-1,2>}{3}\\
+        &= <\frac{2}{3}, -\frac{1}{3},\frac{2}{3}>
+    \end{align*}
+
+
+\subsubsection*{c)}
+\problem{$3\vec{i} - 6\vec{j} + 2\vec{k}$}
+
+    \begin{align*}
+        &= <3, 0, 0> - <0,6,0> + <0,0,2>\\
+        &= <3,-6,2>\\
+        &= \frac{<3,-6,2>}{\sqrt{3^2 + -6^2 + 2^2}}\\
+        &= \frac{<3,-6,2>}{\sqrt{9 + -36 + 4}}\\
+        &= \frac{<3,-6,2>}{\sqrt{-23}}\\
+        &= <\frac{3}{\sqrt{-23}}, -\frac{6}{\sqrt{-23}},\frac{2}{\sqrt{-23}}>
+    \end{align*}
+    
+\subsection*{1A-2}
+\problem{For what value(s) of $c$ will 
+$\frac{1}{5} \vec{i} - \frac{1}{5} \vec{j} +c \vec{k}$ 
+be a unit vector?}
+
+A unit vector $\vec{v}$ has $|\vec{v}| = 1$.
+Thus for the vector $\vec{v}$ with components $<a, b, c>$,
+$\sqrt{a^2 + b^2 + c^2} = 1$.
+
+\begin{align*}
+ c &= 1 - (a^2 + b^2)\\
+  &= 1 - (\frac{1}{5}^2 + \frac{1}{5}^2)\\
+  &= 1 - 2(\frac{1}{5}^2)\\
+  &= 1 - (\frac{2}{25})\\
+  &= \frac{23}{25}
+\end{align*}
+
+
+
+\subsection*{1A-3}
+
+\subsubsection*{a)}
+    \problem{If $P = (1,3,-1)$ and $Q = (0,1,1)$, find $\vec{A} = PQ$, 
+    $|\vec{A}|$ and $\text{dir}\ \vec{A}$.\\
+    (The previous notation impiles $P$ and $Q$ are points, and $A$ is a vector joining them)}
+
+    \begin{align*}
+    \vec{A} &= P - Q \\
+    &= (1,3,-1) - (0,1,1) \\
+    &= <1,2,-2> \\
+    \\
+    |\vec{A}| &= \sqrt{1^2 + 2^2 + (-2)^2}\\
+    &=\sqrt{1+4+4}\\
+    &=\sqrt{9}\\
+    &=3\\
+    \\
+    \text{dir} \ \vec{A} &= \frac{\vec{A}}{|\vec{A}|}\\
+    &= \frac{1}{3} <1,2,-2>\\
+    &= <\frac{1}{3},\frac{2}{3},\frac{-2}{3}>\\
+    \end{align*}
+
+
+
+\subsubsection*{b)}
+    A vector $\vec{A}$ has magnitude 6 and 
+    direction $(\bi + 2\bj - 2\bk)/3$. If it's tail is at $(-2, 0 , 1)$, 
+    where is it's head?
+
+    Let $A_t$ and $A_h$ represent the tip and the tail of the vector 
+    $\vec{A}$, respectivley.
+    To get to the head of the vector all we need to do is start at the
+    point $A_t$ and travel 6 units in the direction of $\vec{A}$.
+    Which is to say:
+
+    \begin{align*}
+    A_h &= A_t + \vec{A}\\
+    &= (-2,0,1) + 6(\bi + 2\bj - 2\bk)/3\\
+    &= (-2,0,1) + 2(\bi + 2\bj - 2\bk)\\
+    &= (-2,0,1) + <2,4, -4>\\
+    &= (0,4,-3)\\
+    \end{align*}
+
+\subsection*{1A-4}
+
+\subsubsection*{a)}
+\problem{Let $P$ and $Q$ be two points in space, and $X$ the mid point of 
+the line segment $PQ$. Let $O$ be an arbitrary fixed point; show that as 
+vectors, $OX = \frac{1}{2}(OP + OQ)$.}
+
+We begin with the points $O, P, Q$. $X$ is at the mid point from $P$ 
+to $Q$.
+
+Now consider the vectors $\vec{OP}$, $\vec{OX}$, and $\vec{OQ}$.
+Let $R$ be the point at $\vec{OP} + \vec{OQ}$
+
+\begin{align*}
+\vec{OX} &= \vec{OP} + \vec{PX} \\
+\vec{PX} &= \frac{1}{2}\vec{PQ} \\
+\\
+\vec{OX} &= \vec{OQ} + \vec{QX}\\
+\vec{QX} &= -\frac{1}{2}\vec{PQ} \\
+\end{align*}
+
+
+\subsubsection*{b)}
+\problem{With the notation of part (a), assume that $X$ divides the line 
+segment $PQ$  in the ratio $r : s$, where $r + s =1$. Derive an expression 
+for $OX$ in terms of $OP$ and $OQ$.}
+
+    Consider first an expression for the vector $\vec{OX}$. 
+    We start at $O$, move to $P$, then from $P$ go to $X$, 
+    thus $\vec{OX} = \vec{OP} + \vec{PX}$. 
+    We know that from $P$ to $X$ we need to travel a fraction of the 
+    distance from $P$ to $Q$. Specifically, $\vec{PX} = r\vec{PQ}$.
+    Thus $\vec{OX} = \vec{OP} + r\vec{PQ}$.
+
+    We also can formulate an expression for $\vec{PQ}$ in terms 
+    of the points $O$, $P$, and $Q$. $\vec{PQ} = \vec{OQ} - \vec{OP}$ 
+    
+
+    \begin{align*}
+    \therefore\\
+        \vec{OX} &= \vec{OP} + r(\vec{OQ} - \vec{OP})\\
+        &= \vec{OP} + r\vec{OQ} - r\vec{OP})\\
+        &= r\vec{OQ} - (r-1)\vec{OP})\\
+        &= r\vec{OQ} + (1-r)\vec{OP})\\
+        \\
+        s = 1 - r\\
+        \therefore\\
+        \vec{OX} = r\vec{OQ} + s\vec{OP}
+    \end{align*}
+
+\subsection*{1A-6}
+\problem{A small plane wishes to fly due north at 200 mph (as seen from 
+the ground), in a wind blowing from the north east at 50 mph. Tell with 
+what vector velocity in the air it should travel (give the $i\ j$-
+components).}
+
+Lets say that due north is the $j$ direction, namely $<0,1>$, 
+because that lines up with the image I have for the y-axis, and 
+thus, east is in the direction of $i$, $<1,0>$.
+Our target is a vector $T = <0, 200> = (0\bi + 200\bj)$. 
+The windspeed, $|\vec{W})|$ is 50 mph, and has a direction $\hat{\vec
+{W}} = \frac{1}{\sqrt{2}}(i + j)$
+Thus our heading velocity $\vec{V}$ ought to be $\vec{T} - \vec{W}$
+
+\begin{align}
+\vec{V} &= \vec{T} - \vec{W}\\
+&= 200\bj - \frac{50}{\sqrt{2}}(i+j)\\
+&= (- \frac{50}{\sqrt{2}}i + (200  - \frac{50}{\sqrt{2}}) \bj)\\
+\therefore \vec{V} &\approx (- 35.4 \bi + 164.6 \bj)\ \text{mph}
+\end{align}
+
+
+
+\subsection*{1A-7}
+
+\problem{Let $\vec{A} = a\bi + b\bj$ be a plane vector; find in terms of $a$ 
+and $b$ the vectors $\vec{A}'$ and $\vec{A}''$ resulting from 
+rotating $\vec{A}$ by $90\deg$ a) clockwise b) counterclockwise. 
+
+(Hint: make $\vec{A}$ the diagonal of a rectangle with sides on the $
+x$ and $y$-axes, and rotate the whole rectangle.)}
+
+\subsubsection*{a) / b)}
+\problem{rotating $\vec{A}$ by $90\deg$ clockwise and counterclockwise}
+
+\begin{align*}
+\vec{A} &= a\bi + b\bj\\
+&= a<1,0> + b<0,1>\\
+\end{align*}
+
+\begin{align*}
+\vec{A'} &= a<0,-1> + b <1,0>\\
+&= b\bi -a\bj\\
+\end{align*}\\
+
+\begin{align*}
+\vec{A''} &= a<0,1> + b <-1,0>\\
+&= - b \bi + a\bj\\
+\end{align*}
+
+
+
+Consider the vector {\color{1}$\vec{A}$}, 
+composed of {\color{2}$a\vec{i}$}$ + 
+${\color{3}$b\vec{j}$}.
+
+$\vec{A}'$ is the vector resulting from rotating {\color{1}$\vec{A}$} by $90\deg$
+
+
+Just like $\vec{A}$, $\vec{A}'$ is composed of a linear combination 
+of $\bi$ and $\bj$.
+We can write $\vec{A}' = u\bi + v\bj$, where $u$ and $v$ are scalars.
+
+We also know that $|\vec{A}'| = |\vec{A}| = 1$, and because $\vec{A}'
+$ is $90\deg$ to $\vec{A}$ we know that $\vec{A} \cdot \vec{A}' = 0$ 
+(Review the problems on dot products if that isnt immediatly obvious.)
+
+
+So from above, we also deduce the following,
+
+\begin{align*}
+\sqrt{u^2 + v^2} &= 1\\
+u^2 + v^2 &= 1^2\\
+u^2 &= 1 - v^2\\
+u &= \sqrt{1 - v^2}\\
+\end{align*}
+
+Though, it isn't clear to what extent that helps me...
+
+Lets look at the solutions to $\vec{A} \cdot \vec{A}' = 0$ for a 
+moment. Since $\vec{A} = a\bi + b\bj$ we can substitute $a$ and $b$ 
+for $A_1$ and $A_2$ respectivley.
+
+\begin{align*}
+\vec{A} \cdot \vec{A}' &= {A_1}{A'}_1 + {A_2}{A'}_2 = 0\\
+\text{becomes}\\
+&= a{A'}_1 + b{A'}_2\\
+\text{and so}\\
+a{A'}_1 &= - b{A'}_2
+\end{align*}
+
+We also know that $\vec{A}' = u\bi + v\bj$, and so we can rewrite 
+the above expression as
+\begin{equation*}
+au = - bv
+\end{equation*}
+
+rearranging we get
+\begin{equation*}
+\frac{a}{b} = - \frac{v}{u}
+\end{equation*}
+
+Looking back, we know that the lengths of the two vectors are the 
+same, so we have
+
+\begin{align*}
+\sqrt{a^2 + b^2} &= \sqrt{v^2 + u^2}\\
+a^2 + b^2 &= v^2 + u^2\\
+\end{align*}
+
+
+rearanging to get $a$ by itself in both cases
+\begin{align*}
+a &= -\frac{bv}{u}\\
+a^2 &= u^2 + v^2 - b^2
+\end{align*}
+
+and now substituting the equations into each other
+
+\begin{align*}
+{-\frac{bv}{u}}^2 &= u^2 + v^2 -b^2\\
+-{bv}^2 &= u^4 + u^2v^2 -u^2b^2\\
+b^2v^2 &= u^4 + u^2v^2 -u^2b^2\\
+0 &= u^4 + u^2v^2 -u^2b^2 - b^2v^2\\
+&= u^4 + u^2v^2 - b^2(u^2 + v^2)\\
+&= u^2(u^2 + v^2) - b^2(u^2 + v^2)\\
+b^2(u^2 + v^2) &= u^2(u^2 + v^2) \\
+b^2 &= u^2 \\
+b &= \pm u
+\end{align*}
+
+
+Now we have $b$ in terms of $u$ we can use this to get $a$ in terms 
+of $v$
+
+\begin{align*}
+a &= -\frac{bv}{u}\\
+a &= \begin{cases} 
+      -\frac{uv}{u} & b= u \\
+      \frac{uv}{u} & b= -u
+   \end{cases}\\
+a &= \begin{cases} 
+      -v & b= u \\
+      v & b= -u
+   \end{cases}
+\end{align*}
+
+So finally we can write $\vec{A}' = b\bi - a\bj$, and $\vec{A}'' = -b
+\bi + a\bj$
+
+
+\subsubsection*{c)} 
+Let $\bi' =(3\bi +4\bj)/5$. Show that $\bi'$ 
+is a unit vector, and use the first part of the exercise to find a vector $
+\bj'$ such that $\bi'$ , $\bj'$ forms a right-handed coordinate system. 
+
+In a right hand coordinate system the angle $\angle\bi\bj = -90\deg$.
+Thus if $\bi'$ is substituted for $\vec{A}''$ in the above example, $
+\bj'$ becomes $-b\bi + a\bj$.
+In turn this is $\bj' = (-4\bi + 3\bj)/5$.
+
+\subsection*{1A-8}
+
+The direction (see definition above) of a space vector is in 
+engineering practice often given by its direction cosines. To 
+describe these, let $\vec{A} = a\bi + b\bj + c\bk$ be a space 
+vector, represented as an origin vector, and let $\alpha$, $\beta$, 
+and $\gamma$ be the three angles ($\leq\pi$) that $\vec{A}$ makes 
+respectively with $\bi$, $\bj$, and $\bk$. 
+
+\subsubsection*{a)}
+\problem{Show that 
+$\text{dir}\ \vec{A} = \cos\alpha\bi + \cos\beta\bj + \cos\gamma\bk$ . 
+(The three coefficients are called the direction cosines of $\vec{A}$.)}
+
+\begin{equation*}
+\vec{A} = a\bi + b\bj +c\bk
+\end{equation*}
+
+Notice that the components $a$ and $b$ define the angle between $\vec
+{A}$ and $\bk$
+
+Above I have sketched out a representation on $\vec{A}$ in relation 
+to {\color{i}$\bi$}, {\color{j}$\bj$}, and {\color{k}$\bk$}. 
+The longer gray vector shows the projection of $\vec{A}$ onto the 
+plane spaned by {\color{i}$\bi$}{\color{j}$\bj$}.
+Focusing our attention just to the last component, we can see that 
+the angle from {\color{k}$\bk$} to $\vec{A}$
+is defined by the triangle it makes with the projection of $\vec{A}$ 
+onto {\color{i}$\bi$}{\color{j}$\bj$}.
+
+The angle $\gamma$, which is the angle from {\color{k}$\bk$} to $\vec{A}$,
+can be determined from the trig relationship
+\begin{equation*}
+\cos{\gamma} = \frac{c}{|\vec{A}|}
+\end{equation*}
+
+Similarly the other angles are thus:
+
+\begin{equation*}
+\cos{\alpha} = \frac{a}{|\vec{A}|}\\
+\cos{\beta} = \frac{b}{|\vec{A}|}
+\end{equation*}
+
+Finally the direction of $\vec{A} = \frac{\vec{A}}{|\vec{A}|}$. 
+Therefore 
+
+\subsubsection*{b)} 
+\problem{Express the direction cosines of $\vec{A}$ in terms of 
+$a$,$b$,$c$; find the direction cosines of the vector $-\bi +2\bj +2\bk$.}
+
+\subsubsection*{c)} 
+\problem{Prove that three numbers $t$,$u$,$v$ are the direction cosines of a 
+vector in space if and only if they satisfy $t2+ u2+ v2=1$.}
+
+
+\subsection*{1A-9}
+\problem{Prove using vector methods (without components) that the line 
+segment joining the midpoints of two sides of a triangle is parallel 
+to the third side and half its length. (Call the two sides $\vec{A}$ 
+and $\vec{B}$.)}
+
+Take the triangle formed by the vectors $\vec{A}$, $\vec{B}$, and $
+\vec{C}$, where 
+\begin{equation*}
+\vec{A} + \vec{B} = \vec{C}
+\end{equation*}
+
+The midpoints sides $\vec{A}$ and $\vec{B}$ are the vectors 
+$\frac{1}{2}\vec{A}$, and $\frac{1}{2}\vec{B}$ respectivley.
+The line segment joining these points can be expressed as a vector, 
+
+\begin{equation*}
+\frac{1}{2}\vec{A} + \frac{1}{2}\vec{B}
+\end{equation*}
+
+This is the same as 
+\begin{equation*}
+\frac{1}{2} (\vec{A} + \vec{B})
+\end{equation*}
+
+And because we know that $\vec{A} + \vec{B} = \vec{C}$, we therefore 
+have 
+\begin{equation*}
+\frac{1}{2} (\vec{A} + \vec{B}) =  \frac{1}{2} \vec{C}
+\end{equation*}
+
+
+Thus the line joining the midpoints of two sides of a triangle are 
+parrallel to, and half the length of the third side
+
+
+\subsection*{1A-10}
+\problem{Prove using vector methods (without components) that the midpoints 
+of the sides of a space quadrilateral form a parallelogram.}
+
+Lets take the points $O$, $P$, $Q$, and $R$ as the verticies of a 
+quadrilateral, in counterclockwise order. Now imagine the vectors $
+\vec{A} = OP = RQ $ and $\vec{B} = OR = PQ$ sit along two 
+perpendicular edges of the quadrilateral, such that $\vec{A} \cdot 
+\vec{B} = 0$.
+
+Consider points $S$, $T$, $U$, and $V$. Each of which is located at 
+the midpoints of the edges of $OPQR$. In this case, 
+
+\begin{align*}
+S &= \frac{1}{2} (P - O)\\
+T &= \frac{1}{2} (Q - P) \\
+U &= \frac{1}{2} (R - Q) \\
+V &= \frac{1}{2} (O - R)
+\end{align*}
