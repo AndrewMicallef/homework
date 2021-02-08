@@ -409,14 +409,32 @@ parrallel to, and half the length of the third side
 
 
 \subsection*{1A-10}
-\problem{Prove using vector methods (without components) that the midpoints 
-of the sides of a space quadrilateral form a parallelogram.}
+\problem{Prove using vector methods (without components) that the 
+midpoints of the sides of a space quadrilateral form a parallelogram.}
 
 Lets take the points $O$, $P$, $Q$, and $R$ as the verticies of a 
 quadrilateral, in counterclockwise order. Now imagine the vectors $
 \vec{A} = OP = RQ $ and $\vec{B} = OR = PQ$ sit along two 
 perpendicular edges of the quadrilateral, such that $\vec{A} \cdot 
 \vec{B} = 0$.
+
+
+\begin{tikzpicture}[
+vertex/.style={cirlce, fill=blue!50!white, size=2pt}
+]
+%declare points OPQR at random locations
+\node[vertex] (O) {O};
+\node[vertex] (P) {P};
+\node[vertex] (Q) {Q};
+\node[vertex] (R) {R};
+
+\fill (0,0) (O);
+\fill (-1,-5) (P);
+\fill (-2,-3) (Q);
+\fill (4,0) (R);
+
+\end{tikzpicture}
+
 
 Consider points $S$, $T$, $U$, and $V$. Each of which is located at 
 the midpoints of the edges of $OPQR$. In this case, 
