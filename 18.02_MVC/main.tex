@@ -1,0 +1,53 @@
+\documentclass{report}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc,through,backgrounds}
+
+\usepackage{titlesec}
+\usepackage[skins]{tcolorbox}
+\usepackage{xcolor}
+
+% colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{i}{HTML}{FF0000}
+\definecolor{j}{HTML}{00BB00}
+\definecolor{k}{HTML}{0000FF}
+
+\definecolor{1}{HTML}{1F77B4}
+\definecolor{2}{HTML}{FF7F0E}
+\definecolor{3}{HTML}{2CA02C}
+
+\definecolor{problem}{HTML}{FFFCAB}
+\definecolor{problem_frame}{HTML}{BBCC00}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bi}{\vec{i}}
+\newcommand{\bj}{\vec{j}}
+\newcommand{\bk}{\vec{k}}
+
+%--------------------------------------------------
+
+%define a new environment for problem statements
+\newsavebox{\selvestebox}
+\newenvironment{colbox}[1]
+  {\newcommand\colboxcolor{#1}%
+   \begin{lrbox}{\selvestebox}%
+   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
+  {\end{minipage}\end{lrbox}%
+   \begin{center}
+   \fcolorbox{problem!50!black}{\colboxcolor}{\usebox{\selvestebox}}
+   \end{center}}
+   
+\newcommand{\problem}[1]{\begin{colbox}{problem}#1\end{colbox}}
+
+\title{\textsc{Problem Set 1}\\Vectors and Matrices}
+\begin{document}
+
+\maketitle
+
+\include{1A-10.tex}
+
+\end{document}
