@@ -1,0 +1,46 @@
+\documentclass[border=20pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections, calc,through,backgrounds}
+
+\begin{document}
+
+    \begin{tikzpicture}[scale=2]
+    
+        % Coordinates for a triangle
+        \coordinate (P) at ($(0,0) + (rand,rand)$);
+        \coordinate (Q) at ($(2,-2) + .5*(rand, rand)$);
+        \coordinate (R) at ($(-2, -2) + .5*(rand, rand)$);
+        \coordinate (O) at (barycentric cs:P=1,Q=1,R=1) ;
+        
+        
+        % 1. Coordinates of the line segment projection to O: E,F,G
+        % 2. draw the vectors from O passing through relevant midpoint
+        \foreach \proj/\tip/\tail/\vector in {E/P/Q/A, F/Q/R/B, G/R/P/C}{
+            \coordinate (\proj) at ($(\tip)!(O)!(\tail)$);
+            
+            \draw[->, blue] let 
+                \p1 = ($(\tip)-(\tail)$)
+            in
+                (O)--++($(O)!sqrt(\x1*\x1+\y1*\y1)!(\proj)-(O)$);
+        }
+        
+        % Draw triangle, and midpoint markers
+        \draw [thin] (P) -- (Q) -- (R) -- cycle;
+        
+        % Labels: verticies
+        \node at (O) [left=2pt]{$O$};
+        \node at (P) [above right=2pt]{$P$};
+        \node at (Q) [right=2pt]{$Q$};
+        \node at (R) [left=2pt]{$R$};
+        
+        % Labels: midpoints
+        \begin{scope}[black!40]
+        \node at (E) [above=1.5em]{$E$};
+        \node at (F) [below left=.5em]{$F$};
+        \node at (G) [above=1.5em]{$G$};
+        \end{scope}
+
+    
+    \end{tikzpicture}
+\end{document}

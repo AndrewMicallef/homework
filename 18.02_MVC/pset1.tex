@@ -640,7 +640,7 @@ $\frac{1}{2}\vec{U} = \vec{B} + \frac{1}{2}\vec{V}$. This relationship
 tells us that we travel halfway along $\vec{U}$ from $O$ we get to the same point
 as we would if we started at $R$ and traveled halfway along $\vec{V}$.
 
-\subsection*{1A-12\*}
+\subsection*{1A-12*}
 \problem{Label the four vertices of a parallelogram in counterclockwise order
  as $OPQR$. Prove that the line segment from $O$ to the midpoint of $PQ$
  intersects the diagonal $PR$ in a point $X$ that is $1/3$ of the way from $P$
@@ -651,7 +651,11 @@ $\vec{A}$ and $\vec{B}$.)}
 
 Take the parallelogram $OPQR$. Let $\vec{U}$ be the vector along the diagonal
 $PR$, $\vec{V}$ be the vector along the other diagonal ($OQ$), and $\vec{W}$ be 
-the vector from $O$ to the midpoint of $PQ$.
+the vector from $O$ to the midpoint of $PQ$. Also let $S$ be the midpoint of $PQ$.
+
+Note that $\vec{U} = \vec{B}-\vec{A}$, \
+and that $\vec{W} =\frac{1}{2}\vec{B} + \vec{A}$.
+
 
 \begin{figure}[!h]
 \centering
@@ -663,57 +667,174 @@ the vector from $O$ to the midpoint of $PQ$.
 \coordinate[label=below:\textcolor{blue}{$R$}] (R) at ($(1, -3)$);
 \coordinate (mid) at ($(P)!0.5!(Q)$);
 
-\draw[thin, name=A] (O) -- (P);
-\draw[thin, name=B] (P) -- (Q);
-\draw[thin] (Q) -- (R);
-\draw[thin] (R) -- (O);
+\draw[->, thick, color=1, name path=A] (O) -- (P);
+\draw[->,thin, color=2, name path=B] (P) -- (Q);
+\draw[->, thin, color=1]  (R) -- (Q);
+\draw[->, color=2, thick] (O) -- (R);
 
 \draw[thin, black!50] (O) -- (Q);
-\draw[name path=U, thin] (P) -- (R);
-\draw[name path=W, thin] (O) -- (mid);
+\draw[->, color=3, thick, name path=U, thin] (P) -- (R);
+\draw[->, color=4, thick, name path=W, thin] (O) -- (mid);
 
 %label intersection then place a coordinate there
 \path[name intersections={of=U and W}];
-\coordinate[label=above:$X$] (X)at (intersection-1);
+\coordinate[label=above:$X$] (X) at (intersection-1);
 
+\path[name intersections={of=B and W}];
+\coordinate[label=left:$S$] (S) at (intersection-1);
 
 \end{tikzpicture}
 \caption{the parallelogram $OPQR$}
+
+
 \end{figure}
 
+Consider that the vector $\vec{W}$ is composed of the sum of the vectors 
+$\vec{OX}$ and $\vec{XS}$. Like wise, $\vec{U}$ can be expressed as the sum
+of $\vec{RX}$ and $\vec{XP}$.
+A more convenient way of expressing this is through the use of scalars. Thus,
+\[\vec{W} = \vec{OX} +\vec{XS} = a\vec{W} + b\vec{W},\] and
+\[\vec{U} = \vec{RX} +\vec{XP} = c\vec{U} + d\vec{U}.\]
 
 
+Now, consider the triangles $PXS$ and $ORX$. The first of these is defined by the following,
+\begin{align*}
+{\color{2}PS} &= {\color{3}PX} + {\color{4}XS}\\
+{\color{2}\frac{1}{2}\vec{B}} &= {\color{3}- d\vec{U}} + {\color{4}b\vec{W}}\\
+{\color{2}\frac{1}{2}\vec{B}} &= {\color{4}b\vec{W}} - {\color{3}d\vec{U}}.\\
+\end{align*}
+While the larger triangle is defined as
+\begin{align*}
+{\color{2}OR} &= {\color{4}OX} + {\color{3}XR}\\
+{\color{2}\vec{B}} &= {\color{4}a\vec{W}} + {\color{3}-c\vec{U}}\\
+{\color{2}\vec{B}} &= {\color{4}a\vec{W}} - {\color{3}c\vec{U}}.\\
+\end{align*}
+Taking these two relationships together we get, 
+\[\vec{B} = a\vec{W} - c\vec{U} = 2(b\vec{W} - d\vec{U}),\]
+Which we can rearrange to solve for $a$ and $c$ 
+(after noticing that $b = 1-a$ and $d = 1-c$).
+\begin{align*}
+a\vec{W} - c\vec{U} &= 2(b\vec{W} - d\vec{U})\\
+a\vec{W} - 2b\vec{W} &=  c\vec{U} - 2d\vec{U}\\
+(a - 2b)\vec{W} &=  (c - 2d)\vec{U}\\
+(a - 2(1-a))\vec{W} &=  (c - 2(1-c))\vec{U}\\
+(a - 2 + 2a)\vec{W} &=  (c - 2 + 2c)\vec{U}\\
+(3a - 2)\vec{W} &=  (3c - 2)\vec{U}
+\end{align*}
+
+At this point we can apply similar logic as we did in the previous example.
+We know that $\vec{W}$ and $\vec{U}$ are linearly independant.
+So there is no $x,y$ where $x\vec{W} = y\vec{U}$, except the case when $x=y=0$.
+Therefore, 
+\begin{align*}
+(3a - 2) &= (3c - 2) = 0\\
+3a - 2 &= 0\\
+3a &= 2\\
+a &= c = \frac{2}{3}.\\
+\end{align*}
+
+So now we can say that $X$ is at $P + d\vec{RP}$.
+ Which can be expressed in terms of $\vec{A}$ and $\vec{B}$ as
+ $\vec{A} + d(\vec{B} - \vec{A})$. And because $d = 1-c$ we can
+ finally write \[X = \vec{A} + \frac{1}{3}(\vec{B} - \vec{A})\]
+ \[X = \frac{2\vec{A} + \vec{B}}{3}.\]
 
 
-
-
-
-
-
-
-
-
-
-
-\subsection*{1A-13\*}
+\subsection*{1A-13*}
 \problem{
     \subsubsection*{a)} Take a triangle $PQR$ in the plane; prove that as 
     vectors $\vec{PQ}+\vec{QR}+\vec{RP} = 0$.}
-    
+
+We start by considering the triangle $PQR$,
+with it's edges defined by the vectors $\vec{A}$, $\vec{B}$, $\vec{C}$.
+
+\tikz[scale=2] {
+    \coordinate (P) at ($(0,1) + .5*(rand, rand)$);
+    \coordinate (Q) at ($(1,0) + .5*(rand, rand)$);
+    \coordinate (R) at ($(-1, 0) + .5*(rand, rand)$);
+    \coordinate (O) at (barycentric cs:P=1,Q=1,R=1);
+}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a triangle
+
+\begin{scope}[thick]
+\draw[->] (P) -- node[midway, above] {$\vec{A}$}(Q);
+\draw[->] (Q) -- node[midway, below] {$\vec{B}$}(R);
+\draw[->] (R) -- node[midway, above] {$\vec{C}$}(P);
+\end{scope}
+
+\node at (O) {$O$};
+\node at (P) [above=2pt]{$P$};
+\node at (Q) [right=2pt]{$Q$};
+\node at (R) [left=2pt]{$R$};
+ 
+
+\end{tikzpicture}
+\caption{the triangle $PQR$}
+\end{figure}
+
+Notice that if you start at $P$ and travel along each vector $\vec{A}$, $\vec{B}$,
+and $\vec{C}$ you find yourself returning to point $P$. Also, notice that 
+\[\vec{A} + \vec{B} = -\vec{C}.\]
+Thus, 
+\begin{align*}
+\vec{A} + \vec{B} + \vec{C}\\ &= \vec{A} + \vec{B}  - (\vec{A} + \vec{B})\\
+&= \mathbf{0}.
+\end{align*}
+
 \problem{\subsubsection*{b)} 
+
     Continuing part a), let A be a vector the same length as $\vec{PQ}$, but
     perpendicular to it, and pointing outside the triangle. Using similar 
     vectors $\vec{B}$ and $\vec{C}$ for the other two sides, prove that 
-    $\vec{A} + \vec{B} + \vec{C} = 0$. 
+    $\vec{A} + \vec{B} + \vec{C} = \mathbf{0}$. 
     (This only takes one sentence, and no computation.)}
-    
-\subsection*{1A-14\*} 
+
+    \begin{figure}[!h]
+    \centering  
+    \begin{tikzpicture}
+        
+        % 1. Coordinates of the line segment projection to O: E,F,G
+        % 2. draw the vectors from O passing through relevant midpoint
+        \foreach \proj/\tip/\tail/\vector in {E/P/Q/A, F/Q/R/B, G/R/P/C}{
+            \coordinate (\proj) at ($(\tip)!(O)!(\tail)$);
+            
+            \draw[->, thick] let 
+                \p1 = ($(\tip)-(\tail)$)
+            in
+                (O)--++($(O)!sqrt(\x1*\x1+\y1*\y1)!(\proj)-(O)$);
+        }
+        
+        % Draw triangle, and midpoint markers
+        \draw [thin] (P) -- (Q) -- (R) -- cycle;
+        
+        % Labels: verticies
+        \node at (O) [left=2pt]{$O$};
+        \node at (P) [above right=2pt]{$P$};
+        \node at (Q) [right=2pt]{$Q$};
+        \node at (R) [left=2pt]{$R$};
+        
+        % Labels: midpoints
+        \begin{scope}[black!40]
+        \node at (E) [above=1.5em]{$E$};
+        \node at (F) [below left=.5em]{$F$};
+        \node at (G) [above=1.5em]{$G$};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{the triangle $PQR$ with vectors at centre}
+    \end{figure}
+
+
+\subsection*{1A-14*} 
 \problem{Generalize parts a) and b) of the previous exercise to a closed 
 polygon in the plane which doesn’t cross itself (i.e., one whose interior is a 
 single region); label its vertices $P_1$, $P_2$ ,$...$ ,$P_n$ as you walk 
 around it.}
 
-\subsection*{1A-15\*}
+\subsection*{1A-15*}
 \problem{Let $P_1$ , $...$ ,$P_n$ be the vertices of a regular $n$-gon in the
  plane, and $O$ its center; show without computation or coordinates that 
  $OP_1 + OP_2 + ... + OP_n = 0$,
