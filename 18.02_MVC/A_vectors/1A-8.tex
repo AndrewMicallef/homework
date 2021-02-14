@@ -1,0 +1,61 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-8}
+
+The direction (see definition above) of a space vector is in
+engineering practice often given by its direction cosines. To
+describe these, let $\vec{A} = a\bi + b\bj + c\bk$ be a space
+vector, represented as an origin vector, and let $\alpha$, $\beta$,
+and $\gamma$ be the three angles ($\leq\pi$) that $\vec{A}$ makes
+respectively with $\bi$, $\bj$, and $\bk$.
+
+\subsubsection*{a)}
+\problem{Show that
+$\text{dir}\ \vec{A} = \cos\alpha\bi + \cos\beta\bj + \cos\gamma\bk$ .
+(The three coefficients are called the direction cosines of $\vec{A}$.)}
+
+\begin{equation*}
+\vec{A} = a\bi + b\bj +c\bk
+\end{equation*}
+
+Notice that the components $a$ and $b$ define the angle between $\vec
+{A}$ and $\bk$
+
+Above I have sketched out a representation on $\vec{A}$ in relation
+to {\color{i}$\bi$}, {\color{j}$\bj$}, and {\color{k}$\bk$}.
+The longer gray vector shows the projection of $\vec{A}$ onto the
+plane spaned by {\color{i}$\bi$}{\color{j}$\bj$}.
+Focusing our attention just to the last component, we can see that
+the angle from {\color{k}$\bk$} to $\vec{A}$
+is defined by the triangle it makes with the projection of $\vec{A}$
+onto {\color{i}$\bi$}{\color{j}$\bj$}.
+
+The angle $\gamma$, which is the angle from {\color{k}$\bk$} to $\vec{A}$,
+can be determined from the trig relationship
+\begin{equation*}
+\cos{\gamma} = \frac{c}{|\vec{A}|}
+\end{equation*}
+
+Similarly the other angles are thus:
+
+\begin{equation*}
+\cos{\alpha} = \frac{a}{|\vec{A}|}\\
+\cos{\beta} = \frac{b}{|\vec{A}|}
+\end{equation*}
+
+Finally the direction of $\vec{A} = \frac{\vec{A}}{|\vec{A}|}$.
+Therefore
+
+\subsubsection*{b)}
+\problem{Express the direction cosines of $\vec{A}$ in terms of
+$a$,$b$,$c$; find the direction cosines of the vector $-\bi +2\bj +2\bk$.}
+
+\subsubsection*{c)}
+\problem{Prove that three numbers $t$,$u$,$v$ are the direction cosines of a
+vector in space if and only if they satisfy $t2+ u2+ v2=1$.}
+
+
+
+
+\end{document}

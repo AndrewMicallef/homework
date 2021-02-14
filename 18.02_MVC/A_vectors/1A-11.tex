@@ -1,0 +1,154 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-11}
+
+\problem{Prove using vector methods (without components) that the
+ diagonals of a parallelogram bisect each other. \\
+(One way: let $\vec{X}$ and $\vec{Y}$ be the midpoints of the two
+diagonals; show $\vec{X} = \vec{Y}$.)}
+
+Let's consider the parallelogram $OPQR$, where $O$, $P$, $Q$, and $R$
+represent the coordinates of the verticies, running in counterclockwise
+order.
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a parallelogram
+\coordinate[label=\textcolor{blue}{$O$}] (O) at ($(0,0)$);
+\coordinate[label=\textcolor{blue}{$P$}] (P) at ($(-3, 1)$);
+\coordinate[label=below:\textcolor{blue}{$Q$}] (Q) at ($(-2, -2)$);
+\coordinate[label=below:\textcolor{blue}{$R$}] (R) at ($(1, -3)$);
+
+\draw[thin] (O) -- (P);
+\draw[thin] (P) -- (Q);
+\draw[thin] (Q) -- (R);
+\draw[thin] (R) -- (O);
+
+\end{tikzpicture}
+\caption{the parallelogram $OPQR$}
+\end{figure}
+
+Notice that the parallelogram can be represented by the span of two vectors,
+$\vec{A}$ and $\vec{B}$.
+In fact if we say that the point $O$ is the origin, then each edge of $OPQR$
+can be specified in terms of $\vec{A}$ and $\vec{B}$.
+
+
+\begin{tcolorbox}[boxsep=.5mm, boxrule=.1pt]
+\textit{ie.}\\
+\begin{align*}
+\vec{A} = P - O \hspace{5em}
+Q-R = P-O = \vec{A}\\
+\vec{B} = R - O\hspace{5em}
+Q-P = R-O = \vec{B}
+\end{align*}
+\tcblower
+Conversly we can think of each point in terms of the vector combination we need to
+add to $O$ in order to get to that point.
+\begin{align*}
+P = \vec{A} \hspace{5em}
+R = \vec{B} \hspace{5em}
+Q = \vec{A} + \vec{B}
+\end{align*}
+\end{tcolorbox}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a parallelogram
+\coordinate[label=\textcolor{blue}{$O$}] (O) at ($(0,0)$);
+\coordinate[label={${\color{blue}P} = \color{1}\vec{A}$}] (P) at ($(-3, 1)$);
+\coordinate[label=below left:%
+{${\color{blue}Q} = {\color{1}\vec{A}} + {\color{2}\vec{B}}$}]%
+ (Q) at ($(-2, -2)$);
+\coordinate[label=below:{${\color{blue}R} = {\color{2}\vec{B}}$}] (R) at ($(1, -3)$);
+
+\draw[->, color=1, very thick] (O) -- node[color=1, above=2pt]{$\vec{A}$} (P);
+\draw[->, color=2, thin] (P) -- (Q);
+\draw[<-, color=1, thin] (Q) -- (R);
+\draw[<-, color=2, very thick] (R) --node[color=2, right=2pt]{$\vec{B}$} (O);
+
+\end{tikzpicture}
+\caption{the parallelogram $OPQR$ in terms of $\vec{A}$ and $\vec{B}$}
+\end{figure}
+
+Now let $\vec{U}$ and $\vec{V}$ be the vectors that run accross the diagonals,
+such that $\vec{U} = \vec{A} + \vec{B}$ and $\vec{V} = \vec{A} - \vec{B}$.
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a parallelogram
+\coordinate (O) at ($(0,0)$);
+\coordinate (P) at ($(-3, 1)$);
+\coordinate (Q) at ($(-2, -2)$);
+\coordinate (R) at ($(1, -3)$);
+
+\draw[thin, color=1]  (O) -- (P);
+\draw[thin, color=2]  (P) -- (Q);
+\draw[thin, color=1]  (Q) -- (R);
+\draw[thin, color=2]  (R) -- (O);
+
+\draw[->, very thick, name=U, color=3]  (O) -- node[left=2pt, at end]{$\color{black}{\color{3}\vec{U}} =
+                                                 {\color{1}\vec{A}}
+                                                 + {\color{2}\vec{B}}$
+                                                 } (Q);
+\draw[->, very thick, name=V, color=4]  (R) -- node[left=2pt, at end]{$\color{black}{\color{4}\vec{V}} =
+                {\color{1}\vec{A}} - {\color{2}\vec{B}}$
+                } (P);
+
+\end{tikzpicture}
+\caption{the parallelogram $OPQR$ with diagonals illustrated as $\vec{U}$ and $\vec{V}$}
+\end{figure}
+
+If the two vectors were to bisect, we could find some pair of values,
+$\{a,b\}$, such that \[ a\vec{U} = \vec{B} + b\vec{V}. \]
+So now we solve for $a$ and $b$.
+\begin{align*}
+a\vec{U} &= \vec{B} + b\vec{V}\\
+a\vec{U} &=  \vec{B} + b\vec{V},
+\hspace{2em}\vec{U} = \vec{A}+\vec{B},
+\hspace{2em}\vec{V} = \vec{A}-\vec{B}\\
+a(\vec{A} + \vec{B}) &= \vec{B} + b(\vec{A}-\vec{B})\\
+a(\vec{A} + \vec{B}) &= \vec{B} + b\vec{A}-b\vec{B}\\
+a(\vec{A} + \vec{B}) &= (1-b)\vec{B} + b\vec{A}\\
+\vec{A} + \vec{B} &= \frac{(1-b)\vec{B} + b\vec{A}}{a}\\
+\vec{A} + \vec{B} &= \frac{(1-b)}{a}\vec{B} + \frac{b}{a}\vec{A}\\
+\vec{A} + \vec{B} &= \frac{b}{a}\vec{A} + \frac{(1-b)}{a}\vec{B} \\
+0 &= \frac{b}{a}\vec{A} -\vec{A} + \frac{(1-b)}{a}\vec{B}  -\vec{B}\\
+0 &= (\frac{b}{a} - 1)\vec{A} + (\frac{(1-b)}{a} - 1)\vec{B}
+\end{align*}
+
+We know that $\vec{A} + \vec{B} \neq 0$. We also know that $\vec{A}$ and $\vec{B}$
+point in two different directions, that is, they are linearly independant. If this
+were not the case then our parallelogram would be squished onto a single line.
+In other words, the only time that the tips of $\vec{A}$ and $\vec{B}$ intersect,
+given place their tails start at the origin, is when the length of both vectors is $0$.
+
+Therefore,
+\[(\frac{b}{a} - 1) = (\frac{(1-b)}{a} - 1) = 0.\]
+\begin{align*}
+\frac{b}{a} - 1 &= 0\\
+\frac{b}{a} &= 1\\
+b &= a,
+\end{align*}
+
+and,
+\begin{align*}
+\frac{(1-b)}{a} - 1 &= 0\\
+\frac{(1-a)}{a} - 1 &= 0\\
+\frac{1}{a} - 1 &= 1\\
+\frac{1}{a} &= 2\\
+a &= \frac{1}{2}.
+\end{align*}
+
+So we find that the diagnoals intersect at their midpoints,
+$\frac{1}{2}\vec{U} = \vec{B} + \frac{1}{2}\vec{V}$. This relationship
+tells us that we travel halfway along $\vec{U}$ from $O$ we get to the same point
+as we would if we started at $R$ and traveled halfway along $\vec{V}$.
+
+
+
+\end{document}

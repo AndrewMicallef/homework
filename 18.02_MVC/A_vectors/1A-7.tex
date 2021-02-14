@@ -1,0 +1,144 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-7}
+
+\problem{Let $\vec{A} = a\bi + b\bj$ be a plane vector; find in terms of $a$
+and $b$ the vectors $\vec{A}'$ and $\vec{A}''$ resulting from
+rotating $\vec{A}$ by $\ang{90}$ a) clockwise b) counterclockwise.
+
+(Hint: make $\vec{A}$ the diagonal of a rectangle with sides on the $
+x$ and $y$-axes, and rotate the whole rectangle.)}
+
+\subsubsection*{a) / b)}
+\problem{rotating $\vec{A}$ by $\ang{90}$ clockwise and counterclockwise}
+
+\begin{align*}
+\vec{A} &= a\bi + b\bj\\
+&= a<1,0> + b<0,1>\\
+\end{align*}
+
+\begin{align*}
+\vec{A'} &= a<0,-1> + b <1,0>\\
+&= b\bi -a\bj\\
+\end{align*}\\
+
+\begin{align*}
+\vec{A''} &= a<0,1> + b <-1,0>\\
+&= - b \bi + a\bj\\
+\end{align*}
+
+
+
+Consider the vector {\color{1}$\vec{A}$},
+composed of {\color{2}$a\vec{i}$}$ +
+${\color{3}$b\vec{j}$}.
+
+$\vec{A}'$ is the vector resulting from rotating {\color{1}$\vec{A}$} by $\ang{90}$
+
+
+Just like $\vec{A}$, $\vec{A}'$ is composed of a linear combination
+of $\bi$ and $\bj$.
+We can write $\vec{A}' = u\bi + v\bj$, where $u$ and $v$ are scalars.
+
+We also know that $|\vec{A}'| = |\vec{A}| = 1$, and because $\vec{A}'
+$ is $\ang{90}$ to $\vec{A}$ we know that $\vec{A} \cdot \vec{A}' = 0$
+(Review the problems on dot products if that isnt immediatly obvious.)
+
+
+So from above, we also deduce the following,
+
+\begin{align*}
+\sqrt{u^2 + v^2} &= 1\\
+u^2 + v^2 &= 1^2\\
+u^2 &= 1 - v^2\\
+u &= \sqrt{1 - v^2}\\
+\end{align*}
+
+Though, it isn't clear to what extent that helps me...
+
+Lets look at the solutions to $\vec{A} \cdot \vec{A}' = 0$ for a
+moment. Since $\vec{A} = a\bi + b\bj$ we can substitute $a$ and $b$
+for $A_1$ and $A_2$ respectivley.
+
+\begin{align*}
+\vec{A} \cdot \vec{A}' &= {A_1}{A'}_1 + {A_2}{A'}_2 = 0\\
+\text{becomes}\\
+&= a{A'}_1 + b{A'}_2\\
+\text{and so}\\
+a{A'}_1 &= - b{A'}_2
+\end{align*}
+
+We also know that $\vec{A}' = u\bi + v\bj$, and so we can rewrite
+the above expression as
+\begin{equation*}
+au = - bv
+\end{equation*}
+
+rearranging we get
+\begin{equation*}
+\frac{a}{b} = - \frac{v}{u}
+\end{equation*}
+
+Looking back, we know that the lengths of the two vectors are the
+same, so we have
+
+\begin{align*}
+\sqrt{a^2 + b^2} &= \sqrt{v^2 + u^2}\\
+a^2 + b^2 &= v^2 + u^2\\
+\end{align*}
+
+
+rearanging to get $a$ by itself in both cases
+\begin{align*}
+a &= -\frac{bv}{u}\\
+a^2 &= u^2 + v^2 - b^2
+\end{align*}
+
+and now substituting the equations into each other
+
+\begin{align*}
+{-\frac{bv}{u}}^2 &= u^2 + v^2 -b^2\\
+-{bv}^2 &= u^4 + u^2v^2 -u^2b^2\\
+b^2v^2 &= u^4 + u^2v^2 -u^2b^2\\
+0 &= u^4 + u^2v^2 -u^2b^2 - b^2v^2\\
+&= u^4 + u^2v^2 - b^2(u^2 + v^2)\\
+&= u^2(u^2 + v^2) - b^2(u^2 + v^2)\\
+b^2(u^2 + v^2) &= u^2(u^2 + v^2) \\
+b^2 &= u^2 \\
+b &= \pm u
+\end{align*}
+
+
+Now we have $b$ in terms of $u$ we can use this to get $a$ in terms
+of $v$
+
+\begin{align*}
+a &= -\frac{bv}{u}\\
+a &= \begin{cases}
+      -\frac{uv}{u} & b= u \\
+      \frac{uv}{u} & b= -u
+   \end{cases}\\
+a &= \begin{cases}
+      -v & b= u \\
+      v & b= -u
+   \end{cases}
+\end{align*}
+
+So finally we can write $\vec{A}' = b\bi - a\bj$, and $\vec{A}'' = -b
+\bi + a\bj$
+
+
+\subsubsection*{c)}
+Let $\bi' =(3\bi +4\bj)/5$. Show that $\bi'$
+is a unit vector, and use the first part of the exercise to find a vector $
+\bj'$ such that $\bi'$ , $\bj'$ forms a right-handed coordinate system.
+
+In a right hand coordinate system the angle $\angle\bi\bj = \ang{-90}$.
+Thus if $\bi'$ is substituted for $\vec{A}''$ in the above example, $
+\bj'$ becomes $-b\bi + a\bj$.
+In turn this is $\bj' = (-4\bi + 3\bj)/5$.
+
+
+
+\end{document}

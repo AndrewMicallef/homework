@@ -1,0 +1,56 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-4}
+
+\subsubsection*{a)}
+\problem{Let $P$ and $Q$ be two points in space, and $X$ the mid point of
+the line segment $PQ$. Let $O$ be an arbitrary fixed point; show that as
+vectors, $OX = \frac{1}{2}(OP + OQ)$.}
+
+We begin with the points $O, P, Q$. $X$ is at the mid point from $P$
+to $Q$.
+
+Now consider the vectors $\vec{OP}$, $\vec{OX}$, and $\vec{OQ}$.
+Let $R$ be the point at $\vec{OP} + \vec{OQ}$
+
+\begin{align*}
+\vec{OX} &= \vec{OP} + \vec{PX} \\
+\vec{PX} &= \frac{1}{2}\vec{PQ} \\
+\\
+\vec{OX} &= \vec{OQ} + \vec{QX}\\
+\vec{QX} &= -\frac{1}{2}\vec{PQ} \\
+\end{align*}
+
+
+\subsubsection*{b)}
+\problem{With the notation of part (a), assume that $X$ divides the line
+segment $PQ$  in the ratio $r : s$, where $r + s =1$. Derive an expression
+for $OX$ in terms of $OP$ and $OQ$.}
+
+    Consider first an expression for the vector $\vec{OX}$.
+    We start at $O$, move to $P$, then from $P$ go to $X$,
+    thus $\vec{OX} = \vec{OP} + \vec{PX}$.
+    We know that from $P$ to $X$ we need to travel a fraction of the
+    distance from $P$ to $Q$. Specifically, $\vec{PX} = r\vec{PQ}$.
+    Thus $\vec{OX} = \vec{OP} + r\vec{PQ}$.
+
+    We also can formulate an expression for $\vec{PQ}$ in terms
+    of the points $O$, $P$, and $Q$. $\vec{PQ} = \vec{OQ} - \vec{OP}$
+
+
+    \begin{align*}
+    \therefore\\
+        \vec{OX} &= \vec{OP} + r(\vec{OQ} - \vec{OP})\\
+        &= \vec{OP} + r\vec{OQ} - r\vec{OP})\\
+        &= r\vec{OQ} - (r-1)\vec{OP})\\
+        &= r\vec{OQ} + (1-r)\vec{OP})\\
+        \\
+        s = 1 - r\\
+        \therefore\\
+        \vec{OX} = r\vec{OQ} + s\vec{OP}
+    \end{align*}
+
+
+
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-6}
+\problem{A small plane wishes to fly due north at 200 mph (as seen from
+the ground), in a wind blowing from the north east at 50 mph. Tell with
+what vector velocity in the air it should travel (give the $i\ j$-
+components).}
+
+Lets say that due north is the $j$ direction, namely $<0,1>$,
+because that lines up with the image I have for the y-axis, and
+thus, east is in the direction of $i$, $<1,0>$.
+Our target is a vector $T = <0, 200> = (0\bi + 200\bj)$.
+The windspeed, $|\vec{W})|$ is 50 mph, and has a direction $\hat{\vec
+{W}} = \frac{1}{\sqrt{2}}(i + j)$
+Thus our heading velocity $\vec{V}$ ought to be $\vec{T} - \vec{W}$
+
+\begin{align}
+\vec{V} &= \vec{T} - \vec{W}\\
+&= 200\bj - \frac{50}{\sqrt{2}}(i+j)\\
+&= (- \frac{50}{\sqrt{2}}i + (200  - \frac{50}{\sqrt{2}}) \bj)\\
+\therefore \vec{V} &\approx (- 35.4 \bi + 164.6 \bj)\ \text{mph}
+\end{align}
+
+
+
+
+
+\end{document}

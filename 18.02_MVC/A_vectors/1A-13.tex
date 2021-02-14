@@ -1,0 +1,143 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-13*}
+\problem{
+    \subsubsection*{a)} Take a triangle $PQR$ in the plane; prove that as
+    vectors $\vec{PQ}+\vec{QR}+\vec{RP} = 0$.}
+
+We start by considering the triangle $PQR$,
+with it's edges defined by the vectors $\vec{A}$, $\vec{B}$, $\vec{C}$.
+
+\tikz[scale=2] {
+    \coordinate (P) at ($(0,1) + .5*(rand, rand)$);
+    \coordinate (Q) at ($(1,0) + .5*(rand, rand)$);
+    \coordinate (R) at ($(-1, 0) + .5*(rand, rand)$);
+    \coordinate (O) at (barycentric cs:P=1,Q=1,R=1);
+}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a triangle
+
+\begin{scope}[thick]
+\draw[->] (P) -- node[midway, above] {$\vec{A}$}(Q);
+\draw[->] (Q) -- node[midway, below] {$\vec{B}$}(R);
+\draw[->] (R) -- node[midway, above] {$\vec{C}$}(P);
+\end{scope}
+
+\node at (O) {$O$};
+\node at (P) [above=2pt]{$P$};
+\node at (Q) [right=2pt]{$Q$};
+\node at (R) [left=2pt]{$R$};
+
+
+\end{tikzpicture}
+\caption{the triangle $PQR$}
+\end{figure}
+
+Notice that if you start at $P$ and travel along each vector $\vec{A}$, 
+$\vec{B}$, and $\vec{C}$ you find yourself returning to point $P$. Also, notice
+that
+\[\vec{A} + \vec{B} = -\vec{C}.\]
+Thus,
+\begin{align*}
+\vec{A} + \vec{B} + \vec{C}\\ &= \vec{A} + \vec{B}  - (\vec{A} + \vec{B})\\
+&= \mathbf{0}.
+\end{align*}
+
+\problem{\subsubsection*{b)}
+
+    Continuing part a), let A be a vector the same length as $\vec{PQ}$, but
+    perpendicular to it, and pointing outside the triangle. Using similar
+    vectors $\vec{B}$ and $\vec{C}$ for the other two sides, prove that
+    $\vec{A} + \vec{B} + \vec{C} = \mathbf{0}$.
+    (This only takes one sentence, and no computation.)}
+
+    \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+
+        % 1. Coordinates of the line segment projection to O: E,F,G
+        % 2. draw the vectors from O passing through relevant midpoint
+        \foreach \proj/\tip/\tail/\col in {E/P/Q/1, F/Q/R/2, G/R/P/3}{
+            \coordinate (\proj) at ($(\tip)!(O)!(\tail)$);
+
+            \draw[->, thick, color=\col] let
+                \p1 = ($(\tip)-(\tail)$)
+            in
+                (O)--++($(O)!sqrt(\x1*\x1+\y1*\y1)!(\proj)-(O)$);
+        }
+
+        % Draw triangle, and midpoint markers
+        \draw [thin] (P) -- (Q) -- (R) -- cycle;
+
+        % Labels: verticies
+        \node at (O) [left=2pt]{$O$};
+        \node at (P) [above right=2pt]{$P$};
+        \node at (Q) [right=2pt]{$Q$};
+        \node at (R) [left=2pt]{$R$};
+
+        % Labels: midpoints
+        \begin{scope}[black!40]
+        \node at (E) [above=1.5em]{$E$};
+        \node at (F) [below left=.5em]{$F$};
+        \node at (G) [above=1.5em]{$G$};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{the triangle $PQR$ with vectors at centre}
+    \end{figure}
+    
+    
+    \begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+
+    \foreach \proj/\endpoint/\tip/\tail in {E/S/P/Q, 
+                                            F/T/Q/R, 
+                                            G/U/R/P}{
+            
+            % get coordinate of O projected on edge
+            \coordinate (\proj) at ($(\tip)!(O)!(\tail)$);
+            
+            % draw a vector from O, 
+            % with length of edge, 
+            % passing through projection
+            % label the point at the end
+            \path
+            let
+                \p1 = ($(\tip)-(\tail)$)
+            in
+                (O)--coordinate[at end](\endpoint)
+                ++($(O)!sqrt(\x1*\x1+\y1*\y1)!(\proj)-(O)$);
+        }
+        
+        % triangle PQR
+        \begin{scope}[thin]
+        \draw[->, color=1] (P) -- (Q);
+        \draw[->, color=2] (Q) -- (R);
+        \draw[->, color=3] (R) -- (P);
+        \end{scope}
+        
+        
+        \path[fill=white, opacity=0.8] (S) --coordinate[at end](TO)++($(T)-(O)$) 
+                        --coordinate[at end](UO)++($(U)-(O)$)--cycle;
+                        
+        
+        \begin{scope}[thick]
+        \draw[->, color=1] (O) -- (S);
+        \draw[->, color=2] (S) -- (TO);
+        \draw[->, color=3] (TO) -- (UO);
+        \end{scope}
+        
+    \end{tikzpicture}
+    \caption{Summing the vectors $\vec{A}$, $\vec{B}$, and $\vec{C}$ is the 
+             same as tracing the path $PQR$}
+    \end{figure}
+
+
+
+
+
+\end{document}

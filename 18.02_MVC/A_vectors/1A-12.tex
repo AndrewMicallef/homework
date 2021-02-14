@@ -1,0 +1,106 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+\subsection*{1A-12*}
+\problem{Label the four vertices of a parallelogram in counterclockwise order
+ as $OPQR$. Prove that the line segment from $O$ to the midpoint of $PQ$
+ intersects the diagonal $PR$ in a point $X$ that is $1/3$ of the way from $P$
+ to $R$.
+
+(Let $\vec{A} =OP$, and $\vec{B} =OR$; express everything in terms of
+$\vec{A}$ and $\vec{B}$.)}
+
+Take the parallelogram $OPQR$. Let $\vec{U}$ be the vector along the diagonal
+$PR$, $\vec{V}$ be the vector along the other diagonal ($OQ$), and $\vec{W}$ be
+the vector from $O$ to the midpoint of $PQ$. Also let $S$ be the midpoint of $PQ$.
+
+Note that $\vec{U} = \vec{B}-\vec{A}$, \
+and that $\vec{W} =\frac{1}{2}\vec{B} + \vec{A}$.
+
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}
+% layout some coordinates for a parallelogram
+\coordinate[label=\textcolor{blue}{$O$}] (O) at ($(0,0)$);
+\coordinate[label=\textcolor{blue}{$P$}] (P) at ($(-5, 0.5)$);
+\coordinate[label=below:\textcolor{blue}{$Q$}] (Q) at ($(-4, -2.5)$);
+\coordinate[label=below:\textcolor{blue}{$R$}] (R) at ($(1, -3)$);
+\coordinate (mid) at ($(P)!0.5!(Q)$);
+
+\draw[->, thick, color=1, name path=A] (O) -- (P);
+\draw[->,thin, color=2, name path=B] (P) -- (Q);
+\draw[->, thin, color=1]  (R) -- (Q);
+\draw[->, color=2, thick] (O) -- (R);
+
+\draw[thin, black!50] (O) -- (Q);
+\draw[->, color=3, thick, name path=U, thin] (P) -- (R);
+\draw[->, color=4, thick, name path=W, thin] (O) -- (mid);
+
+%label intersection then place a coordinate there
+\path[name intersections={of=U and W}];
+\coordinate[label=above:$X$] (X) at (intersection-1);
+
+\path[name intersections={of=B and W}];
+\coordinate[label=left:$S$] (S) at (intersection-1);
+
+\end{tikzpicture}
+\caption{the parallelogram $OPQR$}
+
+
+\end{figure}
+
+Consider that the vector $\vec{W}$ is composed of the sum of the vectors
+$\vec{OX}$ and $\vec{XS}$. Like wise, $\vec{U}$ can be expressed as the sum
+of $\vec{RX}$ and $\vec{XP}$.
+A more convenient way of expressing this is through the use of scalars. Thus,
+\[\vec{W} = \vec{OX} +\vec{XS} = a\vec{W} + b\vec{W},\] and
+\[\vec{U} = \vec{RX} +\vec{XP} = c\vec{U} + d\vec{U}.\]
+
+
+Now, consider the triangles $PXS$ and $ORX$. The first of these is defined by the following,
+\begin{align*}
+{\color{2}PS} &= {\color{3}PX} + {\color{4}XS}\\
+{\color{2}\frac{1}{2}\vec{B}} &= {\color{3}- d\vec{U}} + {\color{4}b\vec{W}}\\
+{\color{2}\frac{1}{2}\vec{B}} &= {\color{4}b\vec{W}} - {\color{3}d\vec{U}}.\\
+\end{align*}
+While the larger triangle is defined as
+\begin{align*}
+{\color{2}OR} &= {\color{4}OX} + {\color{3}XR}\\
+{\color{2}\vec{B}} &= {\color{4}a\vec{W}} + {\color{3}-c\vec{U}}\\
+{\color{2}\vec{B}} &= {\color{4}a\vec{W}} - {\color{3}c\vec{U}}.\\
+\end{align*}
+Taking these two relationships together we get,
+\[\vec{B} = a\vec{W} - c\vec{U} = 2(b\vec{W} - d\vec{U}),\]
+Which we can rearrange to solve for $a$ and $c$
+(after noticing that $b = 1-a$ and $d = 1-c$).
+\begin{align*}
+a\vec{W} - c\vec{U} &= 2(b\vec{W} - d\vec{U})\\
+a\vec{W} - 2b\vec{W} &=  c\vec{U} - 2d\vec{U}\\
+(a - 2b)\vec{W} &=  (c - 2d)\vec{U}\\
+(a - 2(1-a))\vec{W} &=  (c - 2(1-c))\vec{U}\\
+(a - 2 + 2a)\vec{W} &=  (c - 2 + 2c)\vec{U}\\
+(3a - 2)\vec{W} &=  (3c - 2)\vec{U}
+\end{align*}
+
+At this point we can apply similar logic as we did in the previous example.
+We know that $\vec{W}$ and $\vec{U}$ are linearly independant.
+So there is no $x,y$ where $x\vec{W} = y\vec{U}$, except the case when $x=y=0$.
+Therefore,
+\begin{align*}
+(3a - 2) &= (3c - 2) = 0\\
+3a - 2 &= 0\\
+3a &= 2\\
+a &= c = \frac{2}{3}.\\
+\end{align*}
+
+So now we can say that $X$ is at $P + d\vec{RP}$.
+ Which can be expressed in terms of $\vec{A}$ and $\vec{B}$ as
+ $\vec{A} + d(\vec{B} - \vec{A})$. And because $d = 1-c$ we can
+ finally write \[X = \vec{A} + \frac{1}{3}(\vec{B} - \vec{A})\]
+ \[X = \frac{2\vec{A} + \vec{B}}{3}.\]
+
+
+
+
+\end{document}
