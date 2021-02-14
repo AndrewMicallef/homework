@@ -1,5 +1,7 @@
 \documentclass{report}
 
+\usepackage{subfiles}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{siunitx}
@@ -49,7 +51,7 @@
    \begin{center}
    \fcolorbox{problem!50!black}{\colboxcolor}{\usebox{\selvestebox}}
    \end{center}}
-   
+
 \newcommand{\problem}[1]{\begin{colbox}{problem}#1\end{colbox}}
 
 \newcommand{\trynewcommand[2]}%
@@ -65,6 +67,6 @@
 
 \maketitle
 
-\include{pset1.tex}
+\subfile{pset1.tex}
 
 \end{document}

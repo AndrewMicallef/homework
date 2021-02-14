@@ -1,8 +1,11 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+
 \section{Vectors}
 
 \subsection*{1A-1}
 \problem{Find the magnitude and direction of the vectors}
-    
+
 \subsubsection*{a)}
 \problem{$\vec{i} + \vec{j} + \vec{k}$}
 
@@ -43,10 +46,10 @@
         &= \frac{<3,-6,2>}{\sqrt{-23}}\\
         &= <\frac{3}{\sqrt{-23}}, -\frac{6}{\sqrt{-23}},\frac{2}{\sqrt{-23}}>
     \end{align*}
-    
+
 \subsection*{1A-2}
-\problem{For what value(s) of $c$ will 
-$\frac{1}{5} \vec{i} - \frac{1}{5} \vec{j} +c \vec{k}$ 
+\problem{For what value(s) of $c$ will
+$\frac{1}{5} \vec{i} - \frac{1}{5} \vec{j} +c \vec{k}$
 be a unit vector?}
 
 A unit vector $\vec{v}$ has $|\vec{v}| = 1$.
@@ -66,7 +69,7 @@ $\sqrt{a^2 + b^2 + c^2} = 1$.
 \subsection*{1A-3}
 
 \subsubsection*{a)}
-    \problem{If $P = (1,3,-1)$ and $Q = (0,1,1)$, find $\vec{A} = PQ$, 
+    \problem{If $P = (1,3,-1)$ and $Q = (0,1,1)$, find $\vec{A} = PQ$,
     $|\vec{A}|$ and $\text{dir}\ \vec{A}$.\\
     (The previous notation impiles $P$ and $Q$ are points, and $A$ is a vector joining them)}
 
@@ -88,11 +91,11 @@ $\sqrt{a^2 + b^2 + c^2} = 1$.
 
 
 \subsubsection*{b)}
-    A vector $\vec{A}$ has magnitude 6 and 
-    direction $(\bi + 2\bj - 2\bk)/3$. If it's tail is at $(-2, 0 , 1)$, 
+    A vector $\vec{A}$ has magnitude 6 and
+    direction $(\bi + 2\bj - 2\bk)/3$. If it's tail is at $(-2, 0 , 1)$,
     where is it's head?
 
-    Let $A_t$ and $A_h$ represent the tip and the tail of the vector 
+    Let $A_t$ and $A_h$ represent the tip and the tail of the vector
     $\vec{A}$, respectivley.
     To get to the head of the vector all we need to do is start at the
     point $A_t$ and travel 6 units in the direction of $\vec{A}$.
@@ -109,11 +112,11 @@ $\sqrt{a^2 + b^2 + c^2} = 1$.
 \subsection*{1A-4}
 
 \subsubsection*{a)}
-\problem{Let $P$ and $Q$ be two points in space, and $X$ the mid point of 
-the line segment $PQ$. Let $O$ be an arbitrary fixed point; show that as 
+\problem{Let $P$ and $Q$ be two points in space, and $X$ the mid point of
+the line segment $PQ$. Let $O$ be an arbitrary fixed point; show that as
 vectors, $OX = \frac{1}{2}(OP + OQ)$.}
 
-We begin with the points $O, P, Q$. $X$ is at the mid point from $P$ 
+We begin with the points $O, P, Q$. $X$ is at the mid point from $P$
 to $Q$.
 
 Now consider the vectors $\vec{OP}$, $\vec{OX}$, and $\vec{OQ}$.
@@ -129,20 +132,20 @@ Let $R$ be the point at $\vec{OP} + \vec{OQ}$
 
 
 \subsubsection*{b)}
-\problem{With the notation of part (a), assume that $X$ divides the line 
-segment $PQ$  in the ratio $r : s$, where $r + s =1$. Derive an expression 
+\problem{With the notation of part (a), assume that $X$ divides the line
+segment $PQ$  in the ratio $r : s$, where $r + s =1$. Derive an expression
 for $OX$ in terms of $OP$ and $OQ$.}
 
-    Consider first an expression for the vector $\vec{OX}$. 
-    We start at $O$, move to $P$, then from $P$ go to $X$, 
-    thus $\vec{OX} = \vec{OP} + \vec{PX}$. 
-    We know that from $P$ to $X$ we need to travel a fraction of the 
+    Consider first an expression for the vector $\vec{OX}$.
+    We start at $O$, move to $P$, then from $P$ go to $X$,
+    thus $\vec{OX} = \vec{OP} + \vec{PX}$.
+    We know that from $P$ to $X$ we need to travel a fraction of the
     distance from $P$ to $Q$. Specifically, $\vec{PX} = r\vec{PQ}$.
     Thus $\vec{OX} = \vec{OP} + r\vec{PQ}$.
 
-    We also can formulate an expression for $\vec{PQ}$ in terms 
-    of the points $O$, $P$, and $Q$. $\vec{PQ} = \vec{OQ} - \vec{OP}$ 
-    
+    We also can formulate an expression for $\vec{PQ}$ in terms
+    of the points $O$, $P$, and $Q$. $\vec{PQ} = \vec{OQ} - \vec{OP}$
+
 
     \begin{align*}
     \therefore\\
@@ -157,15 +160,15 @@ for $OX$ in terms of $OP$ and $OQ$.}
     \end{align*}
 
 \subsection*{1A-6}
-\problem{A small plane wishes to fly due north at 200 mph (as seen from 
-the ground), in a wind blowing from the north east at 50 mph. Tell with 
+\problem{A small plane wishes to fly due north at 200 mph (as seen from
+the ground), in a wind blowing from the north east at 50 mph. Tell with
 what vector velocity in the air it should travel (give the $i\ j$-
 components).}
 
-Lets say that due north is the $j$ direction, namely $<0,1>$, 
-because that lines up with the image I have for the y-axis, and 
+Lets say that due north is the $j$ direction, namely $<0,1>$,
+because that lines up with the image I have for the y-axis, and
 thus, east is in the direction of $i$, $<1,0>$.
-Our target is a vector $T = <0, 200> = (0\bi + 200\bj)$. 
+Our target is a vector $T = <0, 200> = (0\bi + 200\bj)$.
 The windspeed, $|\vec{W})|$ is 50 mph, and has a direction $\hat{\vec
 {W}} = \frac{1}{\sqrt{2}}(i + j)$
 Thus our heading velocity $\vec{V}$ ought to be $\vec{T} - \vec{W}$
@@ -181,9 +184,9 @@ Thus our heading velocity $\vec{V}$ ought to be $\vec{T} - \vec{W}$
 
 \subsection*{1A-7}
 
-\problem{Let $\vec{A} = a\bi + b\bj$ be a plane vector; find in terms of $a$ 
-and $b$ the vectors $\vec{A}'$ and $\vec{A}''$ resulting from 
-rotating $\vec{A}$ by $\ang{90}$ a) clockwise b) counterclockwise. 
+\problem{Let $\vec{A} = a\bi + b\bj$ be a plane vector; find in terms of $a$
+and $b$ the vectors $\vec{A}'$ and $\vec{A}''$ resulting from
+rotating $\vec{A}$ by $\ang{90}$ a) clockwise b) counterclockwise.
 
 (Hint: make $\vec{A}$ the diagonal of a rectangle with sides on the $
 x$ and $y$-axes, and rotate the whole rectangle.)}
@@ -208,19 +211,19 @@ x$ and $y$-axes, and rotate the whole rectangle.)}
 
 
 
-Consider the vector {\color{1}$\vec{A}$}, 
-composed of {\color{2}$a\vec{i}$}$ + 
+Consider the vector {\color{1}$\vec{A}$},
+composed of {\color{2}$a\vec{i}$}$ +
 ${\color{3}$b\vec{j}$}.
 
 $\vec{A}'$ is the vector resulting from rotating {\color{1}$\vec{A}$} by $\ang{90}$
 
 
-Just like $\vec{A}$, $\vec{A}'$ is composed of a linear combination 
+Just like $\vec{A}$, $\vec{A}'$ is composed of a linear combination
 of $\bi$ and $\bj$.
 We can write $\vec{A}' = u\bi + v\bj$, where $u$ and $v$ are scalars.
 
 We also know that $|\vec{A}'| = |\vec{A}| = 1$, and because $\vec{A}'
-$ is $\ang{90}$ to $\vec{A}$ we know that $\vec{A} \cdot \vec{A}' = 0$ 
+$ is $\ang{90}$ to $\vec{A}$ we know that $\vec{A} \cdot \vec{A}' = 0$
 (Review the problems on dot products if that isnt immediatly obvious.)
 
 
@@ -235,8 +238,8 @@ u &= \sqrt{1 - v^2}\\
 
 Though, it isn't clear to what extent that helps me...
 
-Lets look at the solutions to $\vec{A} \cdot \vec{A}' = 0$ for a 
-moment. Since $\vec{A} = a\bi + b\bj$ we can substitute $a$ and $b$ 
+Lets look at the solutions to $\vec{A} \cdot \vec{A}' = 0$ for a
+moment. Since $\vec{A} = a\bi + b\bj$ we can substitute $a$ and $b$
 for $A_1$ and $A_2$ respectivley.
 
 \begin{align*}
@@ -247,7 +250,7 @@ for $A_1$ and $A_2$ respectivley.
 a{A'}_1 &= - b{A'}_2
 \end{align*}
 
-We also know that $\vec{A}' = u\bi + v\bj$, and so we can rewrite 
+We also know that $\vec{A}' = u\bi + v\bj$, and so we can rewrite
 the above expression as
 \begin{equation*}
 au = - bv
@@ -258,7 +261,7 @@ rearranging we get
 \frac{a}{b} = - \frac{v}{u}
 \end{equation*}
 
-Looking back, we know that the lengths of the two vectors are the 
+Looking back, we know that the lengths of the two vectors are the
 same, so we have
 
 \begin{align*}
@@ -288,16 +291,16 @@ b &= \pm u
 \end{align*}
 
 
-Now we have $b$ in terms of $u$ we can use this to get $a$ in terms 
+Now we have $b$ in terms of $u$ we can use this to get $a$ in terms
 of $v$
 
 \begin{align*}
 a &= -\frac{bv}{u}\\
-a &= \begin{cases} 
+a &= \begin{cases}
       -\frac{uv}{u} & b= u \\
       \frac{uv}{u} & b= -u
    \end{cases}\\
-a &= \begin{cases} 
+a &= \begin{cases}
       -v & b= u \\
       v & b= -u
    \end{cases}
@@ -307,10 +310,10 @@ So finally we can write $\vec{A}' = b\bi - a\bj$, and $\vec{A}'' = -b
 \bi + a\bj$
 
 
-\subsubsection*{c)} 
-Let $\bi' =(3\bi +4\bj)/5$. Show that $\bi'$ 
+\subsubsection*{c)}
+Let $\bi' =(3\bi +4\bj)/5$. Show that $\bi'$
 is a unit vector, and use the first part of the exercise to find a vector $
-\bj'$ such that $\bi'$ , $\bj'$ forms a right-handed coordinate system. 
+\bj'$ such that $\bi'$ , $\bj'$ forms a right-handed coordinate system.
 
 In a right hand coordinate system the angle $\angle\bi\bj = \ang{-90}$.
 Thus if $\bi'$ is substituted for $\vec{A}''$ in the above example, $
@@ -319,16 +322,16 @@ In turn this is $\bj' = (-4\bi + 3\bj)/5$.
 
 \subsection*{1A-8}
 
-The direction (see definition above) of a space vector is in 
-engineering practice often given by its direction cosines. To 
-describe these, let $\vec{A} = a\bi + b\bj + c\bk$ be a space 
-vector, represented as an origin vector, and let $\alpha$, $\beta$, 
-and $\gamma$ be the three angles ($\leq\pi$) that $\vec{A}$ makes 
-respectively with $\bi$, $\bj$, and $\bk$. 
+The direction (see definition above) of a space vector is in
+engineering practice often given by its direction cosines. To
+describe these, let $\vec{A} = a\bi + b\bj + c\bk$ be a space
+vector, represented as an origin vector, and let $\alpha$, $\beta$,
+and $\gamma$ be the three angles ($\leq\pi$) that $\vec{A}$ makes
+respectively with $\bi$, $\bj$, and $\bk$.
 
 \subsubsection*{a)}
-\problem{Show that 
-$\text{dir}\ \vec{A} = \cos\alpha\bi + \cos\beta\bj + \cos\gamma\bk$ . 
+\problem{Show that
+$\text{dir}\ \vec{A} = \cos\alpha\bi + \cos\beta\bj + \cos\gamma\bk$ .
 (The three coefficients are called the direction cosines of $\vec{A}$.)}
 
 \begin{equation*}
@@ -338,13 +341,13 @@ $\text{dir}\ \vec{A} = \cos\alpha\bi + \cos\beta\bj + \cos\gamma\bk$ .
 Notice that the components $a$ and $b$ define the angle between $\vec
 {A}$ and $\bk$
 
-Above I have sketched out a representation on $\vec{A}$ in relation 
-to {\color{i}$\bi$}, {\color{j}$\bj$}, and {\color{k}$\bk$}. 
-The longer gray vector shows the projection of $\vec{A}$ onto the 
+Above I have sketched out a representation on $\vec{A}$ in relation
+to {\color{i}$\bi$}, {\color{j}$\bj$}, and {\color{k}$\bk$}.
+The longer gray vector shows the projection of $\vec{A}$ onto the
 plane spaned by {\color{i}$\bi$}{\color{j}$\bj$}.
-Focusing our attention just to the last component, we can see that 
+Focusing our attention just to the last component, we can see that
 the angle from {\color{k}$\bk$} to $\vec{A}$
-is defined by the triangle it makes with the projection of $\vec{A}$ 
+is defined by the triangle it makes with the projection of $\vec{A}$
 onto {\color{i}$\bi$}{\color{j}$\bj$}.
 
 The angle $\gamma$, which is the angle from {\color{k}$\bk$} to $\vec{A}$,
@@ -360,60 +363,60 @@ Similarly the other angles are thus:
 \cos{\beta} = \frac{b}{|\vec{A}|}
 \end{equation*}
 
-Finally the direction of $\vec{A} = \frac{\vec{A}}{|\vec{A}|}$. 
-Therefore 
+Finally the direction of $\vec{A} = \frac{\vec{A}}{|\vec{A}|}$.
+Therefore
 
-\subsubsection*{b)} 
-\problem{Express the direction cosines of $\vec{A}$ in terms of 
+\subsubsection*{b)}
+\problem{Express the direction cosines of $\vec{A}$ in terms of
 $a$,$b$,$c$; find the direction cosines of the vector $-\bi +2\bj +2\bk$.}
 
-\subsubsection*{c)} 
-\problem{Prove that three numbers $t$,$u$,$v$ are the direction cosines of a 
+\subsubsection*{c)}
+\problem{Prove that three numbers $t$,$u$,$v$ are the direction cosines of a
 vector in space if and only if they satisfy $t2+ u2+ v2=1$.}
 
 
 \subsection*{1A-9}
-\problem{Prove using vector methods (without components) that the line 
-segment joining the midpoints of two sides of a triangle is parallel 
-to the third side and half its length. (Call the two sides $\vec{A}$ 
+\problem{Prove using vector methods (without components) that the line
+segment joining the midpoints of two sides of a triangle is parallel
+to the third side and half its length. (Call the two sides $\vec{A}$
 and $\vec{B}$.)}
 
 Take the triangle formed by the vectors $\vec{A}$, $\vec{B}$, and $
-\vec{C}$, where 
+\vec{C}$, where
 \begin{equation*}
 \vec{A} + \vec{B} = \vec{C}
 \end{equation*}
 
-The midpoints sides $\vec{A}$ and $\vec{B}$ are the vectors 
+The midpoints sides $\vec{A}$ and $\vec{B}$ are the vectors
 $\frac{1}{2}\vec{A}$, and $\frac{1}{2}\vec{B}$ respectivley.
-The line segment joining these points can be expressed as a vector, 
+The line segment joining these points can be expressed as a vector,
 
 \begin{equation*}
 \frac{1}{2}\vec{A} + \frac{1}{2}\vec{B}
 \end{equation*}
 
-This is the same as 
+This is the same as
 \begin{equation*}
 \frac{1}{2} (\vec{A} + \vec{B})
 \end{equation*}
 
-And because we know that $\vec{A} + \vec{B} = \vec{C}$, we therefore 
-have 
+And because we know that $\vec{A} + \vec{B} = \vec{C}$, we therefore
+have
 \begin{equation*}
 \frac{1}{2} (\vec{A} + \vec{B}) =  \frac{1}{2} \vec{C}
 \end{equation*}
 
 
-Thus the line joining the midpoints of two sides of a triangle are 
+Thus the line joining the midpoints of two sides of a triangle are
 parrallel to, and half the length of the third side
 
 
 \subsection*{1A-10}
-\problem{Prove using vector methods (without components) that the 
+\problem{Prove using vector methods (without components) that the
 midpoints of the sides of a space quadrilateral form a parallelogram.}
 
-Lets take the points $O$, $P$, $Q$, and $R$ as the verticies of a 
-quadrilateral, as illustrated below. 
+Lets take the points $O$, $P$, $Q$, and $R$ as the verticies of a
+quadrilateral, as illustrated below.
 
 \begin{figure}[!h]
 \centering
@@ -447,24 +450,24 @@ quadrilateral, as illustrated below.
 \end{figure}
 
 Consider the vectors that run along the edges, pointing in the counterclockwise
-direction, labelled $\vec{A}$, $\vec{B}$, $\vec{C}$, and $\vec{D}$. 
-In particular, 
+direction, labelled $\vec{A}$, $\vec{B}$, $\vec{C}$, and $\vec{D}$.
+In particular,
 \begin{align*}
 \vec{A} = \vec{OP} = P - O\hspace{5em}
-\vec{B} = \vec{PQ} = Q - P\\ 
+\vec{B} = \vec{PQ} = Q - P\\
 \vec{C} = \vec{QR} = R - Q\hspace{5em}
 \vec{D} = \vec{RO} = O - R.
 \end{align*}
 
 Let $\vec{E}$ be vector connecting the midpoints of $OP$ and $PQ$.
-Which, in terms of $\vec{A}$ and $\vec{B}$, becomes 
+Which, in terms of $\vec{A}$ and $\vec{B}$, becomes
 \[\vec{E} = \frac{1}{2}(\vec{A} + \vec{B})\].
 Similarly, the vector connecting the midpoints of $QR$ and $RO$, which
-we will denote $\vec{G}$, can be expressed as 
+we will denote $\vec{G}$, can be expressed as
 \[\vec{G} = \frac{1}{2}(\vec{C} + \vec{D})\].
 
 Now if we expand out $\vec{A} + \vec{B}$, we get
-\begin{align*} 
+\begin{align*}
 \vec{A} + \vec{B} &= \vec{OP} + \vec{PQ}\\
                   &= P - O + Q - P\\
                   &=  Q - O \\
@@ -472,22 +475,22 @@ Now if we expand out $\vec{A} + \vec{B}$, we get
 \end{align*}
 
 Meanwhile, expanding $\vec{C} + \vec{D}$ yeilds
-\begin{align*} 
-\vec{C} + \vec{D} &= \vec{QR} + \vec{RO}\\ 
-                  &= R - Q + O - R\\ 
+\begin{align*}
+\vec{C} + \vec{D} &= \vec{QR} + \vec{RO}\\
+                  &= R - Q + O - R\\
                   &=  O - Q \\
                   &=  \vec{QO} \\
                   &=  -\vec{OQ}. \\
 \end{align*}
 
 Thus $\vec{A} + \vec{B} = -(\vec{C} + \vec{D})$.
-Which is to say the vectors $\vec{E}$ and $\vec{G}$ run anti-parrallel 
-and have the same magnitude. By the same process we can deduce 
-$\vec{B}+\vec{C} = -(\vec{D}+\vec{A})$. 
-Which in turn means that the vectors $\vec{H}$ and $\vec{F}$ also run 
+Which is to say the vectors $\vec{E}$ and $\vec{G}$ run anti-parrallel
+and have the same magnitude. By the same process we can deduce
+$\vec{B}+\vec{C} = -(\vec{D}+\vec{A})$.
+Which in turn means that the vectors $\vec{H}$ and $\vec{F}$ also run
 anti-parallel  and have the same magnitude.
 
-Therefore we the shape formed by connecting the midpoints of a 
+Therefore we the shape formed by connecting the midpoints of a
 quadrilateral is a parallelogram.
 
 
@@ -522,7 +525,7 @@ order.
 \end{figure}
 
 Notice that the parallelogram can be represented by the span of two vectors,
-$\vec{A}$ and $\vec{B}$. 
+$\vec{A}$ and $\vec{B}$.
 In fact if we say that the point $O$ is the origin, then each edge of $OPQR$
 can be specified in terms of $\vec{A}$ and $\vec{B}$.
 
@@ -582,11 +585,11 @@ such that $\vec{U} = \vec{A} + \vec{B}$ and $\vec{V} = \vec{A} - \vec{B}$.
 \draw[thin, color=1]  (Q) -- (R);
 \draw[thin, color=2]  (R) -- (O);
 
-\draw[->, very thick, name=U, color=3]  (O) -- node[left=2pt, at end]{$\color{black}{\color{3}\vec{U}} = 
-                                                 {\color{1}\vec{A}} 
+\draw[->, very thick, name=U, color=3]  (O) -- node[left=2pt, at end]{$\color{black}{\color{3}\vec{U}} =
+                                                 {\color{1}\vec{A}}
                                                  + {\color{2}\vec{B}}$
                                                  } (Q);
-\draw[->, very thick, name=V, color=4]  (R) -- node[left=2pt, at end]{$\color{black}{\color{4}\vec{V}} = 
+\draw[->, very thick, name=V, color=4]  (R) -- node[left=2pt, at end]{$\color{black}{\color{4}\vec{V}} =
                 {\color{1}\vec{A}} - {\color{2}\vec{B}}$
                 } (P);
 
@@ -594,12 +597,12 @@ such that $\vec{U} = \vec{A} + \vec{B}$ and $\vec{V} = \vec{A} - \vec{B}$.
 \caption{the parallelogram $OPQR$ with diagonals illustrated as $\vec{U}$ and $\vec{V}$}
 \end{figure}
 
-If the two vectors were to bisect, we could find some pair of values, 
+If the two vectors were to bisect, we could find some pair of values,
 $\{a,b\}$, such that \[ a\vec{U} = \vec{B} + b\vec{V}. \]
 So now we solve for $a$ and $b$.
 \begin{align*}
 a\vec{U} &= \vec{B} + b\vec{V}\\
-a\vec{U} &=  \vec{B} + b\vec{V}, 
+a\vec{U} &=  \vec{B} + b\vec{V},
 \hspace{2em}\vec{U} = \vec{A}+\vec{B},
 \hspace{2em}\vec{V} = \vec{A}-\vec{B}\\
 a(\vec{A} + \vec{B}) &= \vec{B} + b(\vec{A}-\vec{B})\\
@@ -615,7 +618,7 @@ a(\vec{A} + \vec{B}) &= (1-b)\vec{B} + b\vec{A}\\
 We know that $\vec{A} + \vec{B} \neq 0$. We also know that $\vec{A}$ and $\vec{B}$
 point in two different directions, that is, they are linearly independant. If this
 were not the case then our parallelogram would be squished onto a single line.
-In other words, the only time that the tips of $\vec{A}$ and $\vec{B}$ intersect, 
+In other words, the only time that the tips of $\vec{A}$ and $\vec{B}$ intersect,
 given place their tails start at the origin, is when the length of both vectors is $0$.
 
 Therefore,
@@ -635,7 +638,7 @@ and,
 a &= \frac{1}{2}.
 \end{align*}
 
-So we find that the diagnoals intersect at their midpoints, 
+So we find that the diagnoals intersect at their midpoints,
 $\frac{1}{2}\vec{U} = \vec{B} + \frac{1}{2}\vec{V}$. This relationship
 tells us that we travel halfway along $\vec{U}$ from $O$ we get to the same point
 as we would if we started at $R$ and traveled halfway along $\vec{V}$.
@@ -645,12 +648,12 @@ as we would if we started at $R$ and traveled halfway along $\vec{V}$.
  as $OPQR$. Prove that the line segment from $O$ to the midpoint of $PQ$
  intersects the diagonal $PR$ in a point $X$ that is $1/3$ of the way from $P$
  to $R$.
- 
-(Let $\vec{A} =OP$, and $\vec{B} =OR$; express everything in terms of 
+
+(Let $\vec{A} =OP$, and $\vec{B} =OR$; express everything in terms of
 $\vec{A}$ and $\vec{B}$.)}
 
 Take the parallelogram $OPQR$. Let $\vec{U}$ be the vector along the diagonal
-$PR$, $\vec{V}$ be the vector along the other diagonal ($OQ$), and $\vec{W}$ be 
+$PR$, $\vec{V}$ be the vector along the other diagonal ($OQ$), and $\vec{W}$ be
 the vector from $O$ to the midpoint of $PQ$. Also let $S$ be the midpoint of $PQ$.
 
 Note that $\vec{U} = \vec{B}-\vec{A}$, \
@@ -689,7 +692,7 @@ and that $\vec{W} =\frac{1}{2}\vec{B} + \vec{A}$.
 
 \end{figure}
 
-Consider that the vector $\vec{W}$ is composed of the sum of the vectors 
+Consider that the vector $\vec{W}$ is composed of the sum of the vectors
 $\vec{OX}$ and $\vec{XS}$. Like wise, $\vec{U}$ can be expressed as the sum
 of $\vec{RX}$ and $\vec{XP}$.
 A more convenient way of expressing this is through the use of scalars. Thus,
@@ -709,9 +712,9 @@ While the larger triangle is defined as
 {\color{2}\vec{B}} &= {\color{4}a\vec{W}} + {\color{3}-c\vec{U}}\\
 {\color{2}\vec{B}} &= {\color{4}a\vec{W}} - {\color{3}c\vec{U}}.\\
 \end{align*}
-Taking these two relationships together we get, 
+Taking these two relationships together we get,
 \[\vec{B} = a\vec{W} - c\vec{U} = 2(b\vec{W} - d\vec{U}),\]
-Which we can rearrange to solve for $a$ and $c$ 
+Which we can rearrange to solve for $a$ and $c$
 (after noticing that $b = 1-a$ and $d = 1-c$).
 \begin{align*}
 a\vec{W} - c\vec{U} &= 2(b\vec{W} - d\vec{U})\\
@@ -725,7 +728,7 @@ a\vec{W} - 2b\vec{W} &=  c\vec{U} - 2d\vec{U}\\
 At this point we can apply similar logic as we did in the previous example.
 We know that $\vec{W}$ and $\vec{U}$ are linearly independant.
 So there is no $x,y$ where $x\vec{W} = y\vec{U}$, except the case when $x=y=0$.
-Therefore, 
+Therefore,
 \begin{align*}
 (3a - 2) &= (3c - 2) = 0\\
 3a - 2 &= 0\\
@@ -742,7 +745,7 @@ So now we can say that $X$ is at $P + d\vec{RP}$.
 
 \subsection*{1A-13*}
 \problem{
-    \subsubsection*{a)} Take a triangle $PQR$ in the plane; prove that as 
+    \subsubsection*{a)} Take a triangle $PQR$ in the plane; prove that as
     vectors $\vec{PQ}+\vec{QR}+\vec{RP} = 0$.}
 
 We start by considering the triangle $PQR$,
@@ -770,53 +773,53 @@ with it's edges defined by the vectors $\vec{A}$, $\vec{B}$, $\vec{C}$.
 \node at (P) [above=2pt]{$P$};
 \node at (Q) [right=2pt]{$Q$};
 \node at (R) [left=2pt]{$R$};
- 
+
 
 \end{tikzpicture}
 \caption{the triangle $PQR$}
 \end{figure}
 
 Notice that if you start at $P$ and travel along each vector $\vec{A}$, $\vec{B}$,
-and $\vec{C}$ you find yourself returning to point $P$. Also, notice that 
+and $\vec{C}$ you find yourself returning to point $P$. Also, notice that
 \[\vec{A} + \vec{B} = -\vec{C}.\]
-Thus, 
+Thus,
 \begin{align*}
 \vec{A} + \vec{B} + \vec{C}\\ &= \vec{A} + \vec{B}  - (\vec{A} + \vec{B})\\
 &= \mathbf{0}.
 \end{align*}
 
-\problem{\subsubsection*{b)} 
+\problem{\subsubsection*{b)}
 
     Continuing part a), let A be a vector the same length as $\vec{PQ}$, but
-    perpendicular to it, and pointing outside the triangle. Using similar 
-    vectors $\vec{B}$ and $\vec{C}$ for the other two sides, prove that 
-    $\vec{A} + \vec{B} + \vec{C} = \mathbf{0}$. 
+    perpendicular to it, and pointing outside the triangle. Using similar
+    vectors $\vec{B}$ and $\vec{C}$ for the other two sides, prove that
+    $\vec{A} + \vec{B} + \vec{C} = \mathbf{0}$.
     (This only takes one sentence, and no computation.)}
 
     \begin{figure}[!h]
-    \centering  
+    \centering
     \begin{tikzpicture}
-        
+
         % 1. Coordinates of the line segment projection to O: E,F,G
         % 2. draw the vectors from O passing through relevant midpoint
         \foreach \proj/\tip/\tail/\vector in {E/P/Q/A, F/Q/R/B, G/R/P/C}{
             \coordinate (\proj) at ($(\tip)!(O)!(\tail)$);
-            
-            \draw[->, thick] let 
+
+            \draw[->, thick] let
                 \p1 = ($(\tip)-(\tail)$)
             in
                 (O)--++($(O)!sqrt(\x1*\x1+\y1*\y1)!(\proj)-(O)$);
         }
-        
+
         % Draw triangle, and midpoint markers
         \draw [thin] (P) -- (Q) -- (R) -- cycle;
-        
+
         % Labels: verticies
         \node at (O) [left=2pt]{$O$};
         \node at (P) [above right=2pt]{$P$};
         \node at (Q) [right=2pt]{$Q$};
         \node at (R) [left=2pt]{$R$};
-        
+
         % Labels: midpoints
         \begin{scope}[black!40]
         \node at (E) [above=1.5em]{$E$};
@@ -828,21 +831,17 @@ Thus,
     \end{figure}
 
 
-\subsection*{1A-14*} 
-\problem{Generalize parts a) and b) of the previous exercise to a closed 
-polygon in the plane which doesn’t cross itself (i.e., one whose interior is a 
-single region); label its vertices $P_1$, $P_2$ ,$...$ ,$P_n$ as you walk 
+\subsection*{1A-14*}
+\problem{Generalize parts a) and b) of the previous exercise to a closed
+polygon in the plane which doesn’t cross itself (i.e., one whose interior is a
+single region); label its vertices $P_1$, $P_2$ ,$...$ ,$P_n$ as you walk
 around it.}
 
 \subsection*{1A-15*}
 \problem{Let $P_1$ , $...$ ,$P_n$ be the vertices of a regular $n$-gon in the
- plane, and $O$ its center; show without computation or coordinates that 
+ plane, and $O$ its center; show without computation or coordinates that
  $OP_1 + OP_2 + ... + OP_n = 0$,
 a) if $n$ is even; b) if $n$ is odd.}
 
 
-
-
-
-
-
+\end{document}
