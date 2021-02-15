@@ -1,0 +1,116 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\subsection*{1B-2}
+\problem{Tell for what values of $c$ the vectors $c\bi + 2\bj - \bk$ and 
+$\bi - \bj + 2\bk$  will\\
+a) be orthogonal b) form an acute angle}
+
+Let $\vec{A} = c\bi + 2\bj - \bk$ and $\vec{B} = \bi - \bj + 2\bk$.
+We can derive the angle between the vectors $\vec{A}$ and $\vec{B}$ from the dot
+product. \[\vec{A}\cdot\vec{B} = |\vec{A}||\vec{B}|\cos(\theta).\]
+We can also compute the dot product from the components of the vectors,
+\[\vec{A}\cdot\vec{B} = a_1 b_1 + a_2 b_2 + a_3 b_3.\]
+Where $\vec{A} = <a_1, a_2, a_3>$ and $\vec{B} = <b_1, b_2, b_3>$.
+
+Rewriting the vectors, $\vec{A} = <c, 2, -1>$ and $\vec{B} = <1, -1, 2>$.
+
+We can then compute the dot product, 
+\begin{align*}
+\vec{A}\cdot\vec{B} &= a_1 b_1 + a_2 b_2 + a_3 b_3\\
+                    &= c\times1 + 2\times-1 + -1\times2\\
+                    &= c - 2 - 2\\
+                    &= c - 4
+\end{align*}
+
+When $\vec{A}$ is orthoganal to $\vec{B}$ (can be stated as perpendicular, 
+or $\vec{A}\perp\vec{B}$), $\vec{A}\cdot\vec{B} = 0$.
+
+In this case, $c-4 = 0$, and so $c = 4$.
+
+In contrast if the angle ($\theta$) from $\vec{A}$ to $\vec{B}$ is acute it 
+means that $0 < \theta < \frac{\pi}{2}$
+
+We can rearrange the equations to isolate $\cos(\theta)$. Recalling from 
+trigonometry that the range of $\cos(\theta)$ for  
+$0 < \theta < \frac{\pi}{2}$ will  be $(1, 0)$
+
+
+\begin{align*}
+\vec{A}\cdot\vec{B} &= |\vec{A}||\vec{B}|\cos(\theta)\\
+\frac{\vec{A}\cdot\vec{B}}{|\vec{A}||\vec{B}|} &= \cos(\theta)
+\end{align*}
+
+We already have an expression for the dot product in terms of $c$, so now 
+we need to compute the magnitudes of the vectors.
+\begin{align*}
+|\vec{A}| &= \sqrt{c^2 + 2^2 + -1^2}\\
+          &= \sqrt{c^2 + 4 + 1}\\
+          &= \sqrt{c^2 + 5}\\
+|\vec{A}|^2 &= c^2 + 5\\
+|\vec{A}|^2 - 5 &= c^2\\
+\sqrt{|\vec{A}|^2 - 5} &= c,
+\end{align*}
+and
+\begin{align*}
+|\vec{B}| &= \sqrt{1^2 + -1^2 + 2^2}\\
+          &= \sqrt{1 + 1 + 4}\\
+          &= \sqrt6
+\end{align*}
+
+So now we can rewrite
+\[
+\frac{\vec{A}\cdot\vec{B}}{|\vec{A}||\vec{B}|} = \cos(\theta)
+\]
+as
+\[
+\frac{c-4}{(c^2 + 5)  \sqrt{6}} = \cos(\theta)
+\]
+
+solving for $c$, we get
+\begin{align*}
+\frac{c-4}{c^2 + 5} &= \sqrt{6} \cos(\theta)\\
+\text{let}\space t = \sqrt{6} \cos(\theta)\\
+c-4 &= t (c^2 + 5)\\
+c-4 &=  c^2t + 5 t\\
+-4 - 5 t &=  c^2t  - c\\
+-4 - 5 t &=  c^2(t  - \frac{1}{c})\\
+\end{align*}
+
+When $\theta = \frac{\pi}{2}$, $t = 0$
+\begin{align*}
+-4 - 5 (0) &=  c^2((0)  - \frac{1}{c})\\
+-4 &=   - c^2 \frac{1}{c}\\
+c &= 4,\\
+\end{align*}
+And when $\theta = 0$, $t = \sqrt{6}$
+\begin{align*}
+-4 - 5 (\sqrt{6}) &=  c^2((\sqrt{6})  - \frac{1}{c})\\
+\text{let}\space u &= -4 - 5 (\sqrt{6})\\
+u &=  c^2((\sqrt{6})  - \frac{1}{c})\\
+u &=  c^2\sqrt{6}  - c\\
+0 &=  c^2\sqrt{6}  - c - u\\
+\end{align*}
+
+Using the quadratic formula \[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a},\]
+ where $ax^2 + bx + c =0$,
+
+We get:
+
+\begin{align*}
+c &= \frac{-(-1) \pm \sqrt{(-1)^2 - 4\sqrt{6}u}}{2\sqrt(6)}\\
+c &= \frac{1 \pm \sqrt{1 - \sqrt{24}u}}{\sqrt(24)}\\
+c &= \frac{1 \pm \sqrt{1 - \sqrt{24}(-4-5\sqrt{6})}}{\sqrt(24)}\\
+c &= \frac{1 \pm \sqrt{1 - \sqrt{24}(-4-\sqrt{150})}}{\sqrt(24)}\\
+c &= \frac{1 \pm \sqrt{1 - -\sqrt{384}-\sqrt{3600}}}{\sqrt(24)}\\
+c &= \frac{1 \pm \sqrt{1 + 8\sqrt{6}-60}}{\sqrt{24}}\\
+c &= \frac{1 \pm \sqrt{ 8\sqrt{6}-59}}{\sqrt{24}}\\
+c &= \frac{1 \pm i\sqrt{ 59- 8\sqrt{6}}}{\sqrt{24}}\\
+\end{align*}
+
+Which as far as I can tell is the simplest form.
+So $\vec{A}\angle\vec{B}$ is acute when \[
+\frac{1 \pm i\sqrt{ 59- 8\sqrt{6}}}{\sqrt{24}} < c < 4\]
+
+\end{document}
