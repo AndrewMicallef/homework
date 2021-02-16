@@ -1,0 +1,238 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+
+\subsection*{1B-12}
+    \problem{
+        Prove using vector methods (without components) that an angle 
+        inscribed in a semicircle is a right angle.
+    }
+{
+
+
+\emph{NOTE: While I did solve this problem it is not clear that I used vector methods}
+
+Consider the circle at $O$ of radius $r$ bisecected by the line $PQ$, 
+through $O$, to make a semicircle.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+
+        % Draw semicircle
+          \def \radius{3.5}
+          \coordinate (V) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
+          
+          \path (-\radius, 0) coordinate(P) -- 
+                       coordinate[midway](O)
+                       (\radius, 0) coordinate(Q);
+           \draw (Q) arc(0:180:\radius1);
+          \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+          \draw[dotted] (O) -- node[midway, left]{$r$}(V);
+          
+          \node at (O) [below]  {$O$};
+          \node at (P) [below]  {$P$};
+          \node at (Q) [below]  {$Q$};
+          
+          \foreach \p in {O,P,Q}{
+            \fill (\p) circle (1pt);
+          }
+    
+    \end{tikzpicture}
+    \caption{semicircle $POQ$}
+
+\end{figure}
+
+Now take any vertex $V$ on the circumference of the semicircle. The inscribed
+angle $\theta$ is the angle from $PV$ to $QV$.
+
+\def \radius{3.5}
+\tikz \coordinate (V) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
+
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+    % Draw semicircle
+      
+      \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+       \draw (Q) arc(0:180:\radius1);
+      \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+      
+      \node at (O) [below]  {$O$};
+      \node at (P) [below]  {$P$};
+      \node at (Q) [below]  {$Q$};
+      \node at (V) [above]  {$V$};
+      
+      \draw [color=1] (P)--(V)--(Q)
+        pic ["${\color{black}\theta}$", 
+            draw=1, fill=1,
+            text opacity=1, %needed to stop the label being transparant: see https://tex.stackexchange.com/a/305529/234710
+            fill opacity=0.2, 
+            angle eccentricity=1.5] {angle=P--V--Q};
+      
+      \foreach \p in {O,P,Q, V}{
+        \fill (\p) circle (1pt);
+      }
+      
+    \end{tikzpicture}
+    \caption{inscribed angle $\theta$}
+\end{figure}
+
+
+Consider the vectors $\vec{A} = \vec{VP}$, $\vec{B} = \vec{VQ}$, and 
+$\vec{C} = \vec{A} - \vec{B} = \vec{QP}$. Also, to save of typing, I will 
+consider $\vec{D} = \vec{VO}$, and 
+$\vec{U}=\vec{PO} = -\vec{W} = -\vec{QO} = \frac{1}{2}\vec{C}$.
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+      % Draw semicircle
+
+      \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+      \begin{scope}[opacity=.5]
+        \draw (Q) arc(0:180:\radius1);
+        \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+      \end{scope}
+      
+      \node at (O) [below]  {$O$};
+      \node at (P) [below]  {$P$};
+      \node at (Q) [below]  {$Q$};
+      \node at (V) [above]  {$V$};
+      
+      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
+      \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
+      
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
+      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
+      \draw [->, thick, color=5] (O)--node[midway, below]{$\vec{V}$}(Q);
+      
+      
+      
+      \foreach \p in {O,P,Q, V}{
+        \fill (\p) circle (1pt);
+      }
+      
+    \end{tikzpicture}
+    \caption{Vector composition}
+\end{figure}
+
+
+We know that $|\vec{U}| = |\vec{V}| = |\vec{D}| = r$.
+We can also rewrite $\vec{A}$ and $\vec{B}$ in terms of the other vectors,
+\[\vec{A} = \vec{D} + \vec{U},\] and \[\vec{B} = \vec{D} + \vec{V}.\]
+
+Notice that $\theta$ can be rewritten as the sum of 
+$\angle{\vec{A}\vec{D}}$ ($\phi$) and $\angle{\vec{D}\vec{B}}$ ($\gamma$),
+\[\theta = \phi + \gamma.\]
+While we don't yet know the magnitudes of $\vec{A}$ and $\vec{B}$, we do 
+know we can use the dot product to determine $\phi$ and $\gamma$ respectivley
+
+\begin{align*}
+\vec{A}\cdot\vec{D} = |\vec{A}||\vec{D}|\cos{\phi}\\
+\vec{B}\cdot\vec{D} = |\vec{B}||\vec{D}|\cos{\gamma}\\
+\end{align*}
+
+We also know that the interior angles 
+$\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$.
+Notice that $\angle{\vec{A}\vec{D}} = \angle{\vec{U}\vec{A}}$, and that 
+$\angle{\vec{U}\vec{D}} + \angle{\vec{D}\vec{V}} = \pi$.
+With $\angle{\vec{U}\vec{D}} = \beta$, and we can update our drawing.
+
+%add some quick color defs
+\def \colphi {3!50!4!50!1}
+\def \colgam {5!50!3!50!2}
+\def \colbeta {4!50!3}
+\def \colpibeta {4!50!5}
+
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+      % Draw semicircle
+      \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+                   
+      \pic ["${\color{\colphi}\phi}$", draw=\colphi, angle eccentricity=1.5] {angle=P--V--O};
+      \pic ["${\color{\colphi}\phi}$", draw=\colphi, angle eccentricity=1.5] {angle=O--P--V};
+      
+      \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=O--V--Q};
+      \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=V--Q--O};
+      
+      \pic ["{\color{\colbeta}$\beta$}", draw=\colbeta, angle eccentricity=1.5] {angle=V--O--P};
+      \pic [draw=\colpibeta, "{\color{\colpibeta}$\pi-\beta$}",  angle eccentricity=2] {angle=Q--O--V};
+      
+      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
+      \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
+      
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
+      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
+      \draw [->, thick, color=5] (O)--node[midway, below]{$\vec{V}$}(Q);
+
+      
+    \end{tikzpicture}
+    \caption{Vectors with labelled angles}
+\end{figure}
+
+Notice now that \[2\phi + \beta = 2\gamma + \pi - \beta = \pi.\]
+Rearanging we get,
+\begin{align}
+2\phi + \beta &= \pi\label{eq:1}\\
+2\gamma + \pi - \beta &= \pi\label{eq:2}.
+\end{align}
+%
+Now substituting \eqref{eq:1} into \eqref{eq:2}, we proceed to solve
+\begin{align*}
+2\gamma  - \beta &= 0\\
+\beta &= 2\gamma\\
+2\phi + 2\gamma &= \pi\\
+\phi + \gamma &= \frac{\pi}{2}.
+\end{align*}
+%
+Recall that $\theta = \phi + \gamma$. Therefore we have found 
+\[\theta = \frac{\pi}{2}.\] Proving that a right angle is the angle
+inscribed on a semicricle.
+
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+    % Draw semicircle
+      
+      \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+       \draw (Q) arc(0:180:\radius1);
+      \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+      
+      \node at (O) [below]  {$O$};
+      \node at (P) [below]  {$P$};
+      \node at (Q) [below]  {$Q$};
+      \node at (V) [above]  {$V$};
+      
+      \draw [color=1] (P)--(V)--(Q)
+        pic ["${\color{black}\theta = \frac{\pi}{2}}$", 
+            draw=1,
+            angle eccentricity=1.5] {right angle=P--V--Q};
+      
+      \foreach \p in {O,P,Q, V}{
+        \fill (\p) circle (1pt);
+      }
+      
+    \end{tikzpicture}
+    \caption{The inscribed angle $\theta$ is a right angle}
+\end{figure}
+
+
+\end{document}
