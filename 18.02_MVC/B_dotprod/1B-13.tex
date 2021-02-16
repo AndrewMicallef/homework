@@ -4,9 +4,46 @@
 \problem{Prove the trigonometric formula: 
 $\cos{(\theta_1 - \theta_2)} = 
 \cos\theta_1 \cos\theta_2 + \sin\theta_1 \sin\theta_2$.\\
-(Hint: consider two unit vectors making angles \theta_1 and \theta_2 
+(Hint: consider two unit vectors making angles $\theta_1$ and $\theta_2$ 
 with the positive x-axis.)}
 
+Consider the unit vectors $\vec{A}$ and $\vec{B}$. These vectors make 
+angles of $\theta_1$ and $\theta_2$, respectivley, with respect to the
+positive x-axis (and the basis vector $\bi$)
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=1.5]
+
+		% Draw axis
+		\draw [<->] (-2,0) -- (2,0);
+		
+		\coordinate (O) at (0,0);
+		\coordinate (A) at ($(O)!3 cm!rand*45:(0,1)$);
+		\coordinate (B) at ($(O)!3 cm!rand*45:(0,1)$);
+		\coordinate (i) at (1,0);
+    
+		\begin{scope}[thick]
+			\draw [->, color=1] (O) -- (A);
+			\draw [->, color=2] (O) -- (B);
+		\end{scope}
+		
+		\pic [->, draw=1, "$\color{1}\theta_1$", angle eccentricity=1.5]{angle = i--O--A};
+		\pic [->, draw=2, "\color{2}$\theta_2$", angle radius=40, angle eccentricity=1.2]{angle = i--O--B};
+
+    \end{tikzpicture}
+    \caption{unit vectors $\vec{A}$ and $\vec{B}$}
+
+\end{figure}
+
+
+Considering just $\theta_1$, using the dot product we have 
+\[\vec{A}\cdot\bi = |\vec{A}||\bi|\cos{\theta_1}.\] Which simplifies to
+\[\vec{A}\cdot\bi = \cos{\theta_1},\] because both vectors are of unit length.
+Similarly, \[\vec{B}\cdot\bi = \cos{\theta_2}.\]
+
+Notice that the angle between $\vec{A}$ and $\vec{B}$ is $\theta_1 - \theta_2$.
+(Certainly, at least in the case where $\theta_1 > \theta_2$.)
 
 
 \end{document}
