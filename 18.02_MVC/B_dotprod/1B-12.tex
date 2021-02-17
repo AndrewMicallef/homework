@@ -10,6 +10,7 @@
     }
 {
 
+\subsubsection*{geometric solution}
 
 \emph{NOTE: While I did solve this problem it is not clear that I used vector methods}
 
@@ -129,18 +130,18 @@ $\vec{U}=\vec{PO} = -\vec{W} = -\vec{QO} = \frac{1}{2}\vec{C}$.
 We know that $|\vec{U}| = |\vec{V}| = |\vec{D}| = r$.
 We can also rewrite $\vec{A}$ and $\vec{B}$ in terms of the other vectors,
 \[\vec{A} = \vec{D} + \vec{U},\] and \[\vec{B} = \vec{D} + \vec{V}.\]
-
+%
 Notice that $\theta$ can be rewritten as the sum of 
 $\angle{\vec{A}\vec{D}}$ ($\phi$) and $\angle{\vec{D}\vec{B}}$ ($\gamma$),
 \[\theta = \phi + \gamma.\]
 While we don't yet know the magnitudes of $\vec{A}$ and $\vec{B}$, we do 
 know we can use the dot product to determine $\phi$ and $\gamma$ respectivley
-
+%
 \begin{align*}
 \vec{A}\cdot\vec{D} = |\vec{A}||\vec{D}|\cos{\phi}\\
 \vec{B}\cdot\vec{D} = |\vec{B}||\vec{D}|\cos{\gamma}\\
 \end{align*}
-
+%
 We also know that the interior angles 
 $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$.
 Notice that $\angle{\vec{A}\vec{D}} = \angle{\vec{U}\vec{A}}$, and that 
@@ -233,6 +234,45 @@ inscribed on a semicricle.
     \end{tikzpicture}
     \caption{The inscribed angle $\theta$ is a right angle}
 \end{figure}
+
+
+\subsubsection*{Dot product solution}
+
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+      % Draw semicircle
+      \begin{scope}[opacity=.5]
+        \draw (Q) arc(0:180:\radius1);
+        \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+      \end{scope}
+	  %V projected onto C
+	  \coordinate (V_C) at ($(P)!(V)!(Q)$);
+	  
+      
+      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
+      \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
+      
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(V_C);
+      \draw [->, thick, color=4] (V_C)--node[midway, below]{$\vec{U}$}(P);
+      \draw [->, thick, color=5] (V_C)--node[midway, below]{$\vec{V}$}(Q);
+
+      
+    \end{tikzpicture}
+    \caption{Vectors with labelled angles}
+\end{figure}
+
+\begin{align*}
+\vec{A} = \vec{D} + \vec{U}\\
+\vec{B} = \vec{D} + \vec{V}\\
+|\vec{U}| + |\vec{V}| = 2r\\
+\vec{U} = (\vec{A} \cdot \hat{\vec{C}}) \hat{\vec{C}}\\
+\vec{V} = -(\vec{B} \cdot \hat{\vec{C}}) \hat{\vec{C}}\\
+\vec{C} = \vec{U} - \vec{V}\\
+\hat{\vec{A}}\cdot\hat{\vec{B}} = \hat{\vec{A}}\cdot\hat{\vec{D}} + \hat{\vec{B}}\cdot\hat{\vec{D}}\\
+\end{align*}
 
 
 \end{document}
