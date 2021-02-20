@@ -17,6 +17,7 @@ positive x-axis (and the basis vector $\bi$)
 
 		% Draw axis
 		\draw [<->] (-2,0) -- (2,0);
+		\draw [<->] (0,-2) -- (0,2);
 		
 		\coordinate (O) at (0,0);
 		\coordinate (A) at ($(O)!3 cm!rand*45:(0,1)$);
@@ -40,10 +41,11 @@ positive x-axis (and the basis vector $\bi$)
 Considering just $\theta_1$, using the dot product we have 
 \[\vec{A}\cdot\bi = |\vec{A}||\bi|\cos{\theta_1}.\] Which simplifies to
 \[\vec{A}\cdot\bi = \cos{\theta_1},\] because both vectors are of unit length.
-Similarly, \[\vec{B}\cdot\bi = \cos{\theta_2}.\]
-
+Similarly,
+ \[\vec{B}\cdot\bi = \cos{\theta_2}.\]
 Notice that the angle between $\vec{A}$ and $\vec{B}$ is $\theta_1 - \theta_2$.
 (Certainly, at least in the case where $\theta_1 > \theta_2$.)
-
+Thus \[\vec{A}\cdot\vec{B} = \cos{\theta_1 - \theta_2},\]
 
 \end{document}
+

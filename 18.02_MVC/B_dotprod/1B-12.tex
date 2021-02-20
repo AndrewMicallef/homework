@@ -13,12 +13,8 @@
 %add some quick color defs
 \def \colphi {3!50!4!50!1}
 \def \colgam {5!50!3!50!2}
-\def \colbeta {4!50!3}
-\def \colpibeta {4!50!5}
-
-\subsubsection*{geometric solution}
-
-\emph{NOTE: While I did solve this problem it is not clear that I used vector methods}
+\def \colalpha {4!50!3}
+\def \colbeta {4!50!5}
 
 Consider the circle at $O$ of radius $r$ bisecected by the line $PQ$, 
 through $O$, to make a semicircle.
@@ -175,11 +171,15 @@ In general we would need to multiply both sides by $\cos{}^{-1}$ in order to get
 $\alpha$ in terms of $\beta$. But in this particular case we are dealing with
 angles betweeon $0$ and $\pi$ radians, over which range the cosine function 
 yeilds a unique value for each input. Thus we can say $\alpha = \pi-\beta$.
-Or, to put it another way, $\alpha + \beta = \pi$. Thus $\vec{U}$ is \ang{180}
+Or, to put it another way,
+\begin{equation} 
+\alpha + \beta = \pi. \label{eq:1}
+\end{equation}
+ Thus $\vec{U}$ is \ang{180}
 from $\vec{V}$. (Is this circular logic?).
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     
     \begin{tikzpicture}
@@ -219,17 +219,18 @@ from $\vec{V}$. (Is this circular logic?).
       }
       
     \end{tikzpicture}
-    \caption{Vector composition}
+    \caption{Focusing on $\vec{A}$, $\vec{U}$, and $\vec{D}$}
 \end{figure}
 
 Notice that $\angle{\vec{U}\vec{A}} = \angle{\vec{A}\vec{D}}$. So 
 $\vec{A}\cdot\vec{U} = \vec{A}\cdot\vec{D}$. The same holds on the other
 side of the triangle, so $\vec{B}\cdot\vec{V} = \vec{B}\cdot\vec{D}$.
 We can express that as $\vec{B}\cdot-\vec{U} = \vec{B}\cdot\vec{D}$.
-Because vectors encode the same information as triangles, 
-we know that the interior angles 
-$\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$.
-
+The geometric interpretation of $\vec{A} = \vec{U}+\vec{D}$, is a triangle,
+thus $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}}
+ = \pi$.
+ So now we can write $\phi + \phi + \alpha = \pi$, and similarly, 
+ $\gamma + \gamma + \beta = \pi$
 
 \begin{figure}[h]
     \centering
@@ -247,8 +248,8 @@ $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$
       \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=O--V--Q};
       \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=V--Q--O};
       
-      \pic ["{\color{\colbeta}$\beta$}", draw=\colbeta, angle eccentricity=1.5] {angle=V--O--P};
-      \pic [draw=\colpibeta, "{\color{\colpibeta}$\pi-\beta$}",  angle eccentricity=2] {angle=Q--O--V};
+      \pic ["{\color{\colalpha}$\alpha$}", draw=\colalpha, angle eccentricity=1.5] {angle=V--O--P};
+      \pic [draw=\colbeta, "{\color{\colbeta}$\beta$}",  angle eccentricity=2] {angle=Q--O--V};
       
       \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
       \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
@@ -262,18 +263,20 @@ $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$
     \caption{Vectors with labelled angles}
 \end{figure}
 
-Notice now that \[2\phi + \beta = 2\gamma + \pi - \beta = \pi.\]
+Now \[2\phi + \alpha = 2\gamma + \beta = \pi.\]
 Rearanging we get,
 \begin{align}
-2\phi + \beta &= \pi\label{eq:1}\\
-2\gamma + \pi - \beta &= \pi\label{eq:2}.
+2\phi + \alpha &= \pi\label{eq:2}\\
+2\gamma + \beta &= \pi\label{eq:3}.
 \end{align}
 %
-Now substituting \eqref{eq:1} into \eqref{eq:2}, we proceed to solve
+Now using the relationship we determined with \eqref{eq:1} 
+we can combine \eqref{eq:2} and \eqref{eq:3}, and we proceed to solve
 \begin{align*}
-2\gamma  - \beta &= 0\\
-\beta &= 2\gamma\\
-2\phi + 2\gamma &= \pi\\
+2\phi  + \pi - \beta &= \pi\\
+2\phi  - \beta &= 0\\
+\beta &= 2\phi\\
+2\phi + 2\gamma &= \pi\hspace{1em}\text{subs. $\beta$ into \eqref{eq:3}}\\ 
 \phi + \gamma &= \frac{\pi}{2}.
 \end{align*}
 %
