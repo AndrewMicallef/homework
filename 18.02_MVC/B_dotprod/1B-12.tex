@@ -179,7 +179,6 @@ Or, to put it another way, $\alpha + \beta = \pi$. Thus $\vec{U}$ is \ang{180}
 from $\vec{V}$. (Is this circular logic?).
 
 
-
 \begin{figure}[h]
     \centering
     
@@ -210,9 +209,9 @@ from $\vec{V}$. (Is this circular logic?).
 		%start at V and move the length from O-P
 	
 	
-	  \pic["$\color{\colphi}\alpha$",draw=\colphi, angle eccentricity=1.5]
+	  \pic["$\color{\colphi}\phi$",draw=\colphi, angle eccentricity=1.5]
 		{angle = U_V--V--P};
-      \pic["$\color{\colphi}\alpha$", draw=\colphi, angle eccentricity=1.5]
+      \pic["$\color{\colphi}\phi$", draw=\colphi, angle eccentricity=1.5]
 		{angle = P--V--O};
 	  
       \foreach \p in {O,P,V}{
@@ -223,17 +222,13 @@ from $\vec{V}$. (Is this circular logic?).
     \caption{Vector composition}
 \end{figure}
 
-
-
-
-
-
-
-We also know that the interior angles 
+Notice that $\angle{\vec{U}\vec{A}} = \angle{\vec{A}\vec{D}}$. So 
+$\vec{A}\cdot\vec{U} = \vec{A}\cdot\vec{D}$. The same holds on the other
+side of the triangle, so $\vec{B}\cdot\vec{V} = \vec{B}\cdot\vec{D}$.
+We can express that as $\vec{B}\cdot-\vec{U} = \vec{B}\cdot\vec{D}$.
+Because vectors encode the same information as triangles, 
+we know that the interior angles 
 $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$.
-Notice that $\angle{\vec{A}\vec{D}} = \angle{\vec{U}\vec{A}}$, and that 
-$\angle{\vec{U}\vec{D}} + \angle{\vec{D}\vec{V}} = \pi$.
-With $\angle{\vec{U}\vec{D}} = \beta$, and we can update our drawing.
 
 
 \begin{figure}[h]
