@@ -10,6 +10,12 @@
     }
 {
 
+%add some quick color defs
+\def \colphi {3!50!4!50!1}
+\def \colgam {5!50!3!50!2}
+\def \colbeta {4!50!3}
+\def \colpibeta {4!50!5}
+
 \subsubsection*{geometric solution}
 
 \emph{NOTE: While I did solve this problem it is not clear that I used vector methods}
@@ -86,9 +92,9 @@ angle $\theta$ is the angle from $PV$ to $QV$.
 
 
 Consider the vectors $\vec{A} = \vec{VP}$, $\vec{B} = \vec{VQ}$, and 
-$\vec{C} = \vec{A} - \vec{B} = \vec{QP}$. Also, to save of typing, I will 
+$\vec{C} = \vec{A} - \vec{B} = \vec{QP}$. Also, to save typing, I will 
 consider $\vec{D} = \vec{VO}$, and 
-$\vec{U}=\vec{PO} = -\vec{W} = -\vec{QO} = \frac{1}{2}\vec{C}$.
+$\vec{U}=\vec{PO} = -\vec{V} = -\vec{QO} = \frac{1}{2}\vec{C}$.
 \begin{figure}[h]
     \centering
     
@@ -133,26 +139,102 @@ We can also rewrite $\vec{A}$ and $\vec{B}$ in terms of the other vectors,
 %
 Notice that $\theta$ can be rewritten as the sum of 
 $\angle{\vec{A}\vec{D}}$ ($\phi$) and $\angle{\vec{D}\vec{B}}$ ($\gamma$),
-\[\theta = \phi + \gamma.\]
-While we don't yet know the magnitudes of $\vec{A}$ and $\vec{B}$, we do 
-know we can use the dot product to determine $\phi$ and $\gamma$ respectivley
+\[\theta = \phi + \gamma.\] Additionally, let $\angle{\vec{D}\vec{U}} = \alpha$,
+and $\angle{\vec{D}\vec{V}} = \beta$. So we can now
+write
 %
 \begin{align*}
-\vec{A}\cdot\vec{D} = |\vec{A}||\vec{D}|\cos{\phi}\\
-\vec{B}\cdot\vec{D} = |\vec{B}||\vec{D}|\cos{\gamma}\\
+\vec{U}\cdot\vec{D} = |\vec{U}||\vec{D}|\cos{\alpha}\\
+\vec{V}\cdot\vec{D} = |\vec{V}||\vec{D}|\cos{\beta}
 \end{align*}
 %
+We care about the angles involved, so we can consider just the unit vectors.
+%
+\begin{align*}
+\dir{\vec{U}}\cdot\dir{\vec{D}} &= |\dir{\vec{U}}||\dir{\vec{D}}|\cos{\alpha}\\
+\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha},
+\end{align*}
+and
+\begin{align*}
+\dir{\vec{V}}\cdot\dir{\vec{D}} &= |\dir{\vec{V}}||\dir{\vec{D}}|\cos{\beta}\\
+\dir{\vec{V}}\cdot\dir{\vec{D}} &= \cos{\beta},
+\end{align*}
+%
+where $\dir{\vec{A}} = \text{dir}\vec{A} =\frac{\vec{A}}{|\vec{A}|}$. 
+Notice that we can express the above dot products in similar terms,
+by substituting $\vec{V} = -\vec{U}$, to get
+%
+\begin{align*}
+\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha}\\
+-\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\beta}\\
+\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha} = -\cos{\beta},
+\end{align*}
+%
+And from triganometry we can say, $\cos{\alpha} = \cos{(\pi-\beta)}$.
+In general we would need to multiply both sides by $\cos{}^{-1}$ in order to get
+$\alpha$ in terms of $\beta$. But in this particular case we are dealing with
+angles betweeon $0$ and $\pi$ radians, over which range the cosine function 
+yeilds a unique value for each input. Thus we can say $\alpha = \pi-\beta$.
+Or, to put it another way, $\alpha + \beta = \pi$. Thus $\vec{U}$ is \ang{180}
+from $\vec{V}$. (Is this circular logic?).
+
+
+
+\begin{figure}[h]
+    \centering
+    
+    \begin{tikzpicture}
+
+      % Draw semicircle
+
+      \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+      \begin{scope}[opacity=.5]
+        \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
+      \end{scope}
+      
+      \node at (O) [below]  {$O$};
+      \node at (P) [below]  {$P$};
+      \node at (V) [above]  {$V$};
+	  
+	  \coordinate (U_V) at ($(V)+(P)$);
+      
+      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
+      
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
+      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
+
+	 \draw [->, thick, color=4]
+	 	(V)--node[midway, below]{$\vec{U}$}(U_V);
+		%start at V and move the length from O-P
+	
+	
+	  \pic["$\color{\colphi}\alpha$",draw=\colphi, angle eccentricity=1.5]
+		{angle = U_V--V--P};
+      \pic["$\color{\colphi}\alpha$", draw=\colphi, angle eccentricity=1.5]
+		{angle = P--V--O};
+	  
+      \foreach \p in {O,P,V}{
+        \fill (\p) circle (1pt);
+      }
+      
+    \end{tikzpicture}
+    \caption{Vector composition}
+\end{figure}
+
+
+
+
+
+
+
 We also know that the interior angles 
 $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}} = \pi$.
 Notice that $\angle{\vec{A}\vec{D}} = \angle{\vec{U}\vec{A}}$, and that 
 $\angle{\vec{U}\vec{D}} + \angle{\vec{D}\vec{V}} = \pi$.
 With $\angle{\vec{U}\vec{D}} = \beta$, and we can update our drawing.
 
-%add some quick color defs
-\def \colphi {3!50!4!50!1}
-\def \colgam {5!50!3!50!2}
-\def \colbeta {4!50!3}
-\def \colpibeta {4!50!5}
 
 \begin{figure}[h]
     \centering
@@ -235,44 +317,6 @@ inscribed on a semicricle.
     \caption{The inscribed angle $\theta$ is a right angle}
 \end{figure}
 
-
-\subsubsection*{Dot product solution}
-
-\begin{figure}[h]
-    \centering
-    
-    \begin{tikzpicture}
-
-      % Draw semicircle
-      \begin{scope}[opacity=.5]
-        \draw (Q) arc(0:180:\radius1);
-        \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
-      \end{scope}
-	  %V projected onto C
-	  \coordinate (V_C) at ($(P)!(V)!(Q)$);
-	  
-      
-      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
-      \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
-      
-      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(V_C);
-      \draw [->, thick, color=4] (V_C)--node[midway, below]{$\vec{U}$}(P);
-      \draw [->, thick, color=5] (V_C)--node[midway, below]{$\vec{V}$}(Q);
-
-      
-    \end{tikzpicture}
-    \caption{Vectors with labelled angles}
-\end{figure}
-
-\begin{align*}
-\vec{A} = \vec{D} + \vec{U}\\
-\vec{B} = \vec{D} + \vec{V}\\
-|\vec{U}| + |\vec{V}| = 2r\\
-\vec{U} = (\vec{A} \cdot \hat{\vec{C}}) \hat{\vec{C}}\\
-\vec{V} = -(\vec{B} \cdot \hat{\vec{C}}) \hat{\vec{C}}\\
-\vec{C} = \vec{U} - \vec{V}\\
-\hat{\vec{A}}\cdot\hat{\vec{B}} = \hat{\vec{A}}\cdot\hat{\vec{D}} + \hat{\vec{B}}\cdot\hat{\vec{D}}\\
-\end{align*}
 
 
 \end{document}
