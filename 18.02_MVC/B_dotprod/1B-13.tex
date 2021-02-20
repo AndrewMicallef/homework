@@ -7,30 +7,38 @@ $\cos{(\theta_1 - \theta_2)} =
 (Hint: consider two unit vectors making angles $\theta_1$ and $\theta_2$ 
 with the positive x-axis.)}
 
+{
+
+\tikz[scale=4] \coordinate (O) at (0,0);
+\tikz[scale=4] \coordinate (A) at ($(O)!1 cm!-35:(0,1)$);
+\tikz[scale=4] \coordinate (B) at ($(O)!1 cm!-65:(0,1)$);
+\tikz[scale=4] \coordinate (i) at (1,0);
+\tikz[scale=4] \coordinate (j) at (0,1);
+
+
 Consider the unit vectors $\vec{A}$ and $\vec{B}$. These vectors make 
 angles of $\theta_1$ and $\theta_2$, respectivley, with respect to the
 positive x-axis (and the basis vector $\bi$)
 
+
 \begin{figure}[h]
     \centering
-    \begin{tikzpicture}[scale=1.5]
-
-		% Draw axis
-		\draw [<->] (-2,0) -- (2,0);
-		\draw [<->] (0,-2) -- (0,2);
-		
-		\coordinate (O) at (0,0);
-		\coordinate (A) at ($(O)!3 cm!rand*45:(0,1)$);
-		\coordinate (B) at ($(O)!3 cm!rand*45:(0,1)$);
-		\coordinate (i) at (1,0);
+    \begin{tikzpicture}[scale=4]
     
+		% Draw basis vectors
+		\draw [i, ->] (O) -- (i);
+		\draw [j, ->] (O) -- (j);
+		
 		\begin{scope}[thick]
 			\draw [->, color=1] (O) -- (A);
 			\draw [->, color=2] (O) -- (B);
 		\end{scope}
 		
-		\pic [->, draw=1, "$\color{1}\theta_1$", angle eccentricity=1.5]{angle = i--O--A};
-		\pic [->, draw=2, "\color{2}$\theta_2$", angle radius=40, angle eccentricity=1.2]{angle = i--O--B};
+		\pic [->, draw=1, "$\color{1}\theta_1$", angle eccentricity=1.5]
+                {angle = i--O--A};
+		\pic [->, draw=2, "\color{2}$\theta_2$", angle radius=40, 
+              angle eccentricity=1.2]
+              {angle = i--O--B};
 
     \end{tikzpicture}
     \caption{unit vectors $\vec{A}$ and $\vec{B}$}
@@ -44,8 +52,44 @@ Considering just $\theta_1$, using the dot product we have
 Similarly,
  \[\vec{B}\cdot\bi = \cos{\theta_2}.\]
 Notice that the angle between $\vec{A}$ and $\vec{B}$ is $\theta_1 - \theta_2$.
-(Certainly, at least in the case where $\theta_1 > \theta_2$.)
-Thus \[\vec{A}\cdot\vec{B} = \cos{\theta_1 - \theta_2},\]
+(Certainly, at least in the case where $\theta_1 > \theta_2$.) By the same 
+method as above we would find \[\vec{A}\cdot\vec{B} = \cos(\theta_1 - \theta_2)\]
+
+
+Let's turn our attention to focus on $\vec{A}$. We have observed that the angle
+to $\bi$ is $\theta_1$. 
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+
+		% Draw basis vectors
+		\draw [i, ->] (O) -- (i);
+		\draw [j, ->] (O) -- (j);
+		
+		\begin{scope}[thick]
+			\draw [->, color=1] (O) -- (A);
+		\end{scope}
+		
+		\pic [draw=1!50!i, "$\color{1!50!i}\theta_{1i}$", angle eccentricity=2]
+                {angle = i--O--A};
+
+        \pic [draw=1!50!j, "$\color{1!50!j}\theta_{1j}$", angle eccentricity=2]
+                {angle = A--O--j};
+
+
+    \end{tikzpicture}
+    \caption{unit vector1!50!j1!50!j1!50!j $\vec{A}$}
+
+\end{figure}
+
+Notice that $\vec{A}\cdot\bi = \cos{\theta_{1i}}$, 
+and $\vec{A}\cdot\bj = \cos{\theta_{1j}$. The triangle formed by $\vec{A}$
+and $\vec{A}\cdot\bi$ is similar to the triangle formed by $\vec{A}$ and 
+$\vec{A}\cdot\bj$. As 
+
+}
+
 
 \end{document}
 
