@@ -9,12 +9,20 @@
         inscribed in a semicircle is a right angle.
     }
 {
+\def \wikidprod {https://en.wikipedia.org/wiki/Dot_product\#Properties}
 
 %add some quick color defs
 \def \colphi {3!50!4!50!1}
 \def \colgam {5!50!3!50!2}
 \def \colalpha {4!50!3}
 \def \colbeta {4!50!5}
+
+\def \radius{3.5}
+\tikz \coordinate (V) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
+\tikz \path (-\radius, 0) coordinate(P) -- 
+                   coordinate[midway](O)
+                   (\radius, 0) coordinate(Q);
+%
 
 Consider the circle at $O$ of radius $r$ bisecected by the line $PQ$, 
 through $O$, to make a semicircle.
@@ -24,15 +32,14 @@ through $O$, to make a semicircle.
     \begin{tikzpicture}
 
         % Draw semicircle
-          \def \radius{3.5}
-          \coordinate (V) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
+        \coordinate (r) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
           
           \path (-\radius, 0) coordinate(P) -- 
                        coordinate[midway](O)
                        (\radius, 0) coordinate(Q);
            \draw (Q) arc(0:180:\radius1);
           \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
-          \draw[dotted] (O) -- node[midway, left]{$r$}(V);
+          \draw[dotted] (O) -- node[midway, left]{$r$}(r);
           
           \node at (O) [below]  {$O$};
           \node at (P) [below]  {$P$};
@@ -41,17 +48,16 @@ through $O$, to make a semicircle.
           \foreach \p in {O,P,Q}{
             \fill (\p) circle (1pt);
           }
-    
+
     \end{tikzpicture}
     \caption{semicircle $POQ$}
-
 \end{figure}
 
 Now take any vertex $V$ on the circumference of the semicircle. The inscribed
-angle $\theta$ is the angle from $PV$ to $QV$.
-
-\def \radius{3.5}
-\tikz \coordinate (V) at ($(0,0)!\radius cm!rand*45:(0,\radius)$);
+angle $\theta$ is the angle $\angle{PVQ}$.
+We can use vectors to represent the line segments involved, 
+let \[\vec{A} = P - V,\] and
+let \[\vec{B} = Q - V.\]
 
 \begin{figure}[h]
     \centering
@@ -60,10 +66,8 @@ angle $\theta$ is the angle from $PV$ to $QV$.
 
     % Draw semicircle
       
-      \path (-\radius, 0) coordinate(P) -- 
-                   coordinate[midway](O)
-                   (\radius, 0) coordinate(Q);
-       \draw (Q) arc(0:180:\radius1);
+
+      \draw (Q) arc(0:180:\radius1);
       \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
       
       \node at (O) [below]  {$O$};
@@ -86,11 +90,6 @@ angle $\theta$ is the angle from $PV$ to $QV$.
     \caption{inscribed angle $\theta$}
 \end{figure}
 
-
-Consider the vectors $\vec{A} = \vec{VP}$, $\vec{B} = \vec{VQ}$, and 
-$\vec{C} = \vec{A} - \vec{B} = \vec{QP}$. Also, to save typing, I will 
-consider $\vec{D} = \vec{VO}$, and 
-$\vec{U}=\vec{PO} = -\vec{V} = -\vec{QO} = \frac{1}{2}\vec{C}$.
 \begin{figure}[h]
     \centering
     
@@ -98,223 +97,49 @@ $\vec{U}=\vec{PO} = -\vec{V} = -\vec{QO} = \frac{1}{2}\vec{C}$.
 
       % Draw semicircle
 
-      \path (-\radius, 0) coordinate(P) -- 
-                   coordinate[midway](O)
-                   (\radius, 0) coordinate(Q);
       \begin{scope}[opacity=.5]
-        \draw (Q) arc(0:180:\radius1);
+        \draw (Q) arc(0:180:\radius);
         \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
       \end{scope}
       
-      \node at (O) [below]  {$O$};
-      \node at (P) [below]  {$P$};
-      \node at (Q) [below]  {$Q$};
-      \node at (V) [above]  {$V$};
+      
       
       \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
       \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
+      \draw [->, thick, color=1] (Q)--node[midway, above left]{$\vec{A}$}++($(P) - (V)$);
+      \draw [->, thick, color=2] (P)--node[midway, above right]{$\vec{B}$}++($(Q) - (V)$);
       
-      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
-      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
-      \draw [->, thick, color=5] (O)--node[midway, below]{$\vec{V}$}(Q);
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}($(O)-(V)$);
+      \draw [->, thick, color=4] (P)--node[midway, below]{$\vec{C}$}(Q);
       
-      
-      
-      \foreach \p in {O,P,Q, V}{
-        \fill (\p) circle (1pt);
-      }
+      %\foreach \p in {O,P,Q, V}{
+      %  \fill (\p) circle (1pt);
+      %  \node at (\p) [below]  {$\p$};
+       
+      %}
       
     \end{tikzpicture}
     \caption{Vector composition}
 \end{figure}
 
-
-We know that $|\vec{U}| = |\vec{V}| = |\vec{D}| = r$.
-We can also rewrite $\vec{A}$ and $\vec{B}$ in terms of the other vectors,
-\[\vec{A} = \vec{D} + \vec{U},\] and \[\vec{B} = \vec{D} + \vec{V}.\]
-%
-Notice that $\theta$ can be rewritten as the sum of 
-$\angle{\vec{A}\vec{D}}$ ($\phi$) and $\angle{\vec{D}\vec{B}}$ ($\gamma$),
-\[\theta = \phi + \gamma.\] Additionally, let $\angle{\vec{D}\vec{U}} = \alpha$,
-and $\angle{\vec{D}\vec{V}} = \beta$. So we can now
-write
-%
+We can interpret $\vec{A}$ and $\vec{B}$ to define the span of a parallogram,
+with diagonals \[\vec{C} = \vec{A} - \vec{B},\] 
+and \[\vec{D} = \vec{A} + \vec{B}.\]
+Now consider the dot product of the diagonals,
+\[\vec{C}\cdot\vec{D} = (\vec{A} + \vec{B}) \cdot (\vec{A} - \vec{B}).\]
+By the \href{\wikidprod}{distributive} property of vector dot products, 
+this can be rewritten,
 \begin{align*}
-\vec{U}\cdot\vec{D} = |\vec{U}||\vec{D}|\cos{\alpha}\\
-\vec{V}\cdot\vec{D} = |\vec{V}||\vec{D}|\cos{\beta}
+\vec{C}\cdot\vec{D} &= (\vec{A} + \vec{B}) \cdot (\vec{A} - \vec{B})\\
+&= \vec{A}\cdot \vec{A} + \vec{B}\cdot \vec{A} 
+-\vec{A}\cdot \vec{B} - \vec{B}\cdot \vec{B}.
 \end{align*}
-%
-We care about the angles involved, so we can consider just the unit vectors.
-%
+By \href{\wikidprod}{commutativity} the terms $\vec{B}\cdot\vec{A}$ and
+$\vec{A}\cdot\vec{B}$ are equivalent. Cancelling them out and we get,
 \begin{align*}
-\dir{\vec{U}}\cdot\dir{\vec{D}} &= |\dir{\vec{U}}||\dir{\vec{D}}|\cos{\alpha}\\
-\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha},
+\vec{C}\cdot\vec{D} &= \vec{A}\cdot \vec{A} - \vec{B}\cdot \vec{B}\\
+\vec{C}\cdot\vec{D} &= |\vec{A}|^2 - |\vec{B}|^2
 \end{align*}
-and
-\begin{align*}
-\dir{\vec{V}}\cdot\dir{\vec{D}} &= |\dir{\vec{V}}||\dir{\vec{D}}|\cos{\beta}\\
-\dir{\vec{V}}\cdot\dir{\vec{D}} &= \cos{\beta},
-\end{align*}
-%
-where $\dir{\vec{A}} = \text{dir}\vec{A} =\frac{\vec{A}}{|\vec{A}|}$. 
-Notice that we can express the above dot products in similar terms,
-by substituting $\vec{V} = -\vec{U}$, to get
-%
-\begin{align*}
-\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha}\\
--\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\beta}\\
-\dir{\vec{U}}\cdot\dir{\vec{D}} &= \cos{\alpha} = -\cos{\beta},
-\end{align*}
-%
-And from triganometry we can say, $\cos{\alpha} = \cos{(\pi-\beta)}$.
-In general we would need to multiply both sides by $\cos{}^{-1}$ in order to get
-$\alpha$ in terms of $\beta$. But in this particular case we are dealing with
-angles betweeon $0$ and $\pi$ radians, over which range the cosine function 
-yeilds a unique value for each input. Thus we can say $\alpha = \pi-\beta$.
-Or, to put it another way,
-\begin{equation} 
-\alpha + \beta = \pi. \label{eq:1}
-\end{equation}
- Thus $\vec{U}$ is \ang{180}
-from $\vec{V}$. (Is this circular logic?).
 
-
-\begin{figure}[h!]
-    \centering
-    
-    \begin{tikzpicture}
-
-      % Draw semicircle
-
-      \path (-\radius, 0) coordinate(P) -- 
-                   coordinate[midway](O)
-                   (\radius, 0) coordinate(Q);
-      \begin{scope}[opacity=.5]
-        \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
-      \end{scope}
-      
-      \node at (O) [below]  {$O$};
-      \node at (P) [below]  {$P$};
-      \node at (V) [above]  {$V$};
-	  
-	  \coordinate (U_V) at ($(V)+(P)$);
-      
-      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
-      
-      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
-      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
-
-	 \draw [->, thick, color=4]
-	 	(V)--node[midway, below]{$\vec{U}$}(U_V);
-		%start at V and move the length from O-P
-	
-	
-	  \pic["$\color{\colphi}\phi$",draw=\colphi, angle eccentricity=1.5]
-		{angle = U_V--V--P};
-      \pic["$\color{\colphi}\phi$", draw=\colphi, angle eccentricity=1.5]
-		{angle = P--V--O};
-	  
-      \foreach \p in {O,P,V}{
-        \fill (\p) circle (1pt);
-      }
-      
-    \end{tikzpicture}
-    \caption{Focusing on $\vec{A}$, $\vec{U}$, and $\vec{D}$}
-\end{figure}
-
-Notice that $\angle{\vec{U}\vec{A}} = \angle{\vec{A}\vec{D}}$. So 
-$\vec{A}\cdot\vec{U} = \vec{A}\cdot\vec{D}$. The same holds on the other
-side of the triangle, so $\vec{B}\cdot\vec{V} = \vec{B}\cdot\vec{D}$.
-We can express that as $\vec{B}\cdot-\vec{U} = \vec{B}\cdot\vec{D}$.
-The geometric interpretation of $\vec{A} = \vec{U}+\vec{D}$, is a triangle,
-thus $\angle{\vec{A}\vec{D}} + \angle{\vec{U}\vec{D}} + \angle{\vec{U}\vec{A}}
- = \pi$.
- So now we can write $\phi + \phi + \alpha = \pi$, and similarly, 
- $\gamma + \gamma + \beta = \pi$
-
-\begin{figure}[h]
-    \centering
-    
-    \begin{tikzpicture}
-
-      % Draw semicircle
-      \path (-\radius, 0) coordinate(P) -- 
-                   coordinate[midway](O)
-                   (\radius, 0) coordinate(Q);
-                   
-      \pic ["${\color{\colphi}\phi}$", draw=\colphi, angle eccentricity=1.5] {angle=P--V--O};
-      \pic ["${\color{\colphi}\phi}$", draw=\colphi, angle eccentricity=1.5] {angle=O--P--V};
-      
-      \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=O--V--Q};
-      \pic ["${\color{\colgam}\gamma}$", draw=\colgam, angle eccentricity=1.5] {angle=V--Q--O};
-      
-      \pic ["{\color{\colalpha}$\alpha$}", draw=\colalpha, angle eccentricity=1.5] {angle=V--O--P};
-      \pic [draw=\colbeta, "{\color{\colbeta}$\beta$}",  angle eccentricity=2] {angle=Q--O--V};
-      
-      \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
-      \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
-      
-      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}(O);
-      \draw [->, thick, color=4] (O)--node[midway, below]{$\vec{U}$}(P);
-      \draw [->, thick, color=5] (O)--node[midway, below]{$\vec{V}$}(Q);
-
-      
-    \end{tikzpicture}
-    \caption{Vectors with labelled angles}
-\end{figure}
-
-Now \[2\phi + \alpha = 2\gamma + \beta = \pi.\]
-Rearanging we get,
-\begin{align}
-2\phi + \alpha &= \pi\label{eq:2}\\
-2\gamma + \beta &= \pi\label{eq:3}.
-\end{align}
-%
-Now using the relationship we determined with \eqref{eq:1} 
-we can combine \eqref{eq:2} and \eqref{eq:3}, and we proceed to solve
-\begin{align*}
-2\phi  + \pi - \beta &= \pi\\
-2\phi  - \beta &= 0\\
-\beta &= 2\phi\\
-2\phi + 2\gamma &= \pi\hspace{1em}\text{subs. $\beta$ into \eqref{eq:3}}\\ 
-\phi + \gamma &= \frac{\pi}{2}.
-\end{align*}
-%
-Recall that $\theta = \phi + \gamma$. Therefore we have found 
-\[\theta = \frac{\pi}{2}.\] Proving that a right angle is the angle
-inscribed on a semicricle.
-
-\begin{figure}[h]
-    \centering
-    
-    \begin{tikzpicture}
-
-    % Draw semicircle
-      
-      \path (-\radius, 0) coordinate(P) -- 
-                   coordinate[midway](O)
-                   (\radius, 0) coordinate(Q);
-       \draw (Q) arc(0:180:\radius1);
-      \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
-      
-      \node at (O) [below]  {$O$};
-      \node at (P) [below]  {$P$};
-      \node at (Q) [below]  {$Q$};
-      \node at (V) [above]  {$V$};
-      
-      \draw [color=1] (P)--(V)--(Q)
-        pic ["${\color{black}\theta = \frac{\pi}{2}}$", 
-            draw=1,
-            angle eccentricity=1.5] {right angle=P--V--Q};
-      
-      \foreach \p in {O,P,Q, V}{
-        \fill (\p) circle (1pt);
-      }
-      
-    \end{tikzpicture}
-    \caption{The inscribed angle $\theta$ is a right angle}
-\end{figure}
-
-
-
+}
 \end{document}
