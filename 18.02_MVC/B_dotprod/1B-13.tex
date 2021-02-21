@@ -9,11 +9,11 @@ with the positive x-axis.)}
 
 {
 
-\tikz[scale=4] \coordinate (O) at (0,0);
-\tikz[scale=4] \coordinate (A) at ($(O)!1 cm!-35:(0,1)$);
-\tikz[scale=4] \coordinate (B) at ($(O)!1 cm!-65:(0,1)$);
-\tikz[scale=4] \coordinate (i) at (1,0);
-\tikz[scale=4] \coordinate (j) at (0,1);
+\tikz[scale=6] \coordinate (O) at (0,0);
+\tikz[scale=6] \coordinate (A) at ($(O)!1 cm!-35:(0,1)$);
+\tikz[scale=6] \coordinate (B) at ($(O)!1 cm!-65:(0,1)$);
+\tikz[scale=6] \coordinate (i) at (1,0);
+\tikz[scale=6] \coordinate (j) at (0,1);
 
 
 Consider the unit vectors $\vec{A}$ and $\vec{B}$. These vectors make 
@@ -21,7 +21,7 @@ angles of $\theta_1$ and $\theta_2$, respectivley, with respect to the
 positive x-axis (and the basis vector $\bi$)
 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}[scale=4]
     
@@ -56,10 +56,7 @@ Notice that the angle between $\vec{A}$ and $\vec{B}$ is $\theta_1 - \theta_2$.
 method as above we would find \[\vec{A}\cdot\vec{B} = \cos(\theta_1 - \theta_2)\]
 
 
-Let's turn our attention to focus on $\vec{A}$. We have observed that the angle
-to $\bi$ is $\theta_1$. 
-
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}
 
@@ -71,22 +68,70 @@ to $\bi$ is $\theta_1$.
 			\draw [->, color=1] (O) -- (A);
 		\end{scope}
 		
-		\pic [draw=1!50!i, "$\color{1!50!i}\theta_{1i}$", angle eccentricity=2]
+		\begin{scope}[dashed]
+			\draw[1!50!j] ($(O)!(A)!(i)$) -- 
+							node[midway, right]{$\vec{A}\cdot\bj = \cos{(\frac{\pi}{2}-\theta_1)}$}
+							(A);
+			\draw[1!50!i] ($(O)!(A)!(j)$) -- 
+							node[midway, above]{$\vec{A}\cdot\bi = \cos{\theta_1}$}
+							(A);
+		\end{scope}
+		
+		
+		\pic [draw=1, "$\color{1}\theta_{1}$", angle eccentricity=2]
                 {angle = i--O--A};
 
-        \pic [draw=1!50!j, "$\color{1!50!j}\theta_{1j}$", angle eccentricity=2]
-                {angle = A--O--j};
-
-
     \end{tikzpicture}
-    \caption{unit vector1!50!j1!50!j1!50!j $\vec{A}$}
+    \caption{unit vector $\vec{A}$}
 
 \end{figure}
 
-Notice that $\vec{A}\cdot\bi = \cos{\theta_{1i}}$, 
-and $\vec{A}\cdot\bj = \cos{\theta_{1j}$. The triangle formed by $\vec{A}$
-and $\vec{A}\cdot\bi$ is similar to the triangle formed by $\vec{A}$ and 
-$\vec{A}\cdot\bj$. As 
+Let's turn our attention to focus on $\vec{A}$. We have observed that the angle
+to $\bi$ is $\theta_1$. 
+Notice that the angle between $\vec{A}$ and $\bj$ is $\frac{\pi}{2} - \theta_1$.
+And $\cos{(\frac{\pi}{2} - \theta_1)} = \sin{\theta_1}$.
+So, $\vec{A}\cdot\bj = \sin{\theta_1}$
+Now consider that 
+\begin{align*}
+\vec{A} &= (\vec{A}\cdot\bi)\bi + (\vec{A}\cdot\bj)\bj\\
+&= \cos{\theta_1}\bi + \sin{\theta_1}\bj,
+\end{align*}
+while
+\begin{align*}
+\vec{B} &= (\vec{B}\cdot\bi)\bi + (\vec{B}\cdot\bj)\bj\\
+&= \cos{\theta_2}\bi + \sin{\theta_2}\bj.
+\end{align*}
+We can rewrite the dot product of $\vec{A}$ and $\vec{B}$
+\begin{align*}
+\vec{A}\cdot\vec{B} &= (\cos{\theta_1}\bi + \sin{\theta_1}\bj) \cdot
+(\cos{\theta_2}\bi + \sin{\theta_2}\bj)\\
+\begin{split}
+&= 
+\cos{\theta_1}\bi \cdot\cos{\theta_2}\bi 
++ \cos{\theta_1}\bi \cdot\sin{\theta_2}\bj
++\sin{\theta_1}\bj\cdot\cos{\theta_2}\bi 
++ \sin{\theta_1}\bj\cdot\sin{\theta_2}\bj
+\end{split}\\
+\begin{split}
+&= 
+(\cos{\theta_1}\cos{\theta_2})(\bi \cdot\bi)
++ (\cos{\theta_1}\sin{\theta_2})(\bi \cdot\bj)
++ (\sin{\theta_1}\cos{\theta_2})(\bj\cdot\bi)
++ (\sin{\theta_1}\sin{\theta_2})(\bj\cdot\bj).
+\end{split}
+\end{align*}
+We can simplify this because $\bi\cdot\bi = |\bi|^2 = |\bj|^2 =\bj\cdot\bj = 1$ 
+and $\bi\cdot\bj = 0$
+\begin{align*}
+\vec{A}\cdot\vec{B} &=  
+\cos{\theta_1}\cos{\theta_2}
++ \sin{\theta_1}\sin{\theta_2}.
+\end{align*}
+Thus,\[
+\cos{(\theta_1 - \theta_2)} = 
+\cos{\theta_1}\cos{\theta_2}
++ \sin{\theta_1}\sin{\theta_2}.
+\]
 
 }
 
