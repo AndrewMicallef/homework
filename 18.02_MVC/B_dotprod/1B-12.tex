@@ -101,22 +101,21 @@ let \[\vec{B} = Q - V.\]
         \draw (Q) arc(0:180:\radius);
         \draw[shorten <=-5mm, shorten >=-5mm] (P) -- (Q);
       \end{scope}
-      
+
+      \node at (O) [below]  {$O$};
+      \node at (P) [below]  {$P$};
+      \node at (Q) [below]  {$Q$};
+      \node at (V) [above]  {$V$};      
       
       
       \draw [->, thick, color=1] (V)--node[midway, above left]{$\vec{A}$}(P);
       \draw [->, thick, color=2] (V)--node[midway, above right]{$\vec{B}$}(Q);
-      \draw [->, thick, color=1] (Q)--node[midway, above left]{$\vec{A}$}++($(P) - (V)$);
-      \draw [->, thick, color=2] (P)--node[midway, above right]{$\vec{B}$}++($(Q) - (V)$);
+      \draw [->, thick, color=3] (V)--node[midway, left]{$\frac{1}{2}\vec{D}$}(O);
+      \draw [->, thick, color=4] (P)--node[midway, below]{$\frac{1}{2}\vec{C}$}(O);
       
-      \draw [->, thick, color=3] (V)--node[midway, left]{$\vec{D}$}($(O)-(V)$);
-      \draw [->, thick, color=4] (P)--node[midway, below]{$\vec{C}$}(Q);
-      
-      %\foreach \p in {O,P,Q, V}{
-      %  \fill (\p) circle (1pt);
-      %  \node at (\p) [below]  {$\p$};
-       
-      %}
+      \foreach \p in {O,P,Q, V}{
+        \fill (\p) circle (1pt);
+		}
       
     \end{tikzpicture}
     \caption{Vector composition}
@@ -125,21 +124,45 @@ let \[\vec{B} = Q - V.\]
 We can interpret $\vec{A}$ and $\vec{B}$ to define the span of a parallogram,
 with diagonals \[\vec{C} = \vec{A} - \vec{B},\] 
 and \[\vec{D} = \vec{A} + \vec{B}.\]
-Now consider the dot product of the diagonals,
-\[\vec{C}\cdot\vec{D} = (\vec{A} + \vec{B}) \cdot (\vec{A} - \vec{B}).\]
-By the \href{\wikidprod}{distributive} property of vector dot products, 
-this can be rewritten,
+%
+Notice that the position vector $\vec{O - V}$ points from $V$ to the origin
+$O$ with a length or $r$. While the position vector $\vec{O - P}$, pointing from
+$P$ to $O$, also has length $r$. In fact  $\vec{O - V} = \frac{1}{2}\vec{D}$,
+and $\vec{O - P} = \frac{1}{2}\vec{C}$. Therefore,
+\[|\vec{C}| = |\vec{D}| = 2r.\]
+Recall that the dot product of a vector $\vec{A}$ with itself is 
+$\vec{A}\cdot\vec{A} = |\vec{A}|^2$. So we can use the equality above to say
 \begin{align*}
-\vec{C}\cdot\vec{D} &= (\vec{A} + \vec{B}) \cdot (\vec{A} - \vec{B})\\
-&= \vec{A}\cdot \vec{A} + \vec{B}\cdot \vec{A} 
--\vec{A}\cdot \vec{B} - \vec{B}\cdot \vec{B}.
+\vec{C}\cdot\vec{C} = |\vec{C}|^2 = |\vec{D}|^2 = \vec{D}\cdot\vec{D}.
 \end{align*}
-By \href{\wikidprod}{commutativity} the terms $\vec{B}\cdot\vec{A}$ and
-$\vec{A}\cdot\vec{B}$ are equivalent. Cancelling them out and we get,
+%
+We can then use the \href{\wikidprod}{distributive} property of vector dot products
+to expand, by substituting the equations for $\vec{C}$ and $\vec{D}$ in terms
+of $\vec{A}$ and $\vec{B}$.
 \begin{align*}
-\vec{C}\cdot\vec{D} &= \vec{A}\cdot \vec{A} - \vec{B}\cdot \vec{B}\\
-\vec{C}\cdot\vec{D} &= |\vec{A}|^2 - |\vec{B}|^2
+\vec{C}\cdot\vec{C} &= \vec{D}\cdot\vec{D}\\
+(\vec{A} - \vec{B})\cdot(\vec{A} - \vec{B}) &= (\vec{A} + \vec{B})\cdot(\vec{A} + \vec{B})\\
+\vec{A}\cdot\vec{A} - \vec{A}\cdot\vec{B}
+-\vec{B}\cdot\vec{A} +\vec{B}\cdot\vec{B} &=
+\vec{A}\cdot\vec{A} + \vec{A}\cdot\vec{B}
++\vec{B}\cdot\vec{A} +\vec{B}\cdot\vec{B}\\
+\vec{A}\cdot\vec{A} - 2\vec{A}\cdot\vec{B} +\vec{B}\cdot\vec{B} &=
+\vec{A}\cdot\vec{A} + 2\vec{A}\cdot\vec{B} +\vec{B}\cdot\vec{B}\\
+|\vec{A}|^2 - 2\vec{A}\cdot\vec{B} +|\vec{B}|^2 &=
+|\vec{A}|^2 + 2\vec{A}\cdot\vec{B} +|\vec{B}|^2.
 \end{align*}
-
+Collecting like terms we can simplify to 
+%
+\begin{align*}
+- 2\vec{A}\cdot\vec{B} &= 2\vec{A}\cdot\vec{B}\\
+ 4\vec{A}\cdot\vec{B} &= 0\\
+ \vec{A}\cdot\vec{B} &= 0.
+\end{align*}
+%
+Thus we find that $\vec{A}$ and $\vec{B}$ are orthoganal; the angle between
+them is a right angle. Thus the angle inscribed in a semicircle is a 
+right angle.
 }
+
+
 \end{document}
