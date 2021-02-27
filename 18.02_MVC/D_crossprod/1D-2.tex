@@ -1,0 +1,30 @@
+\documentclass[main.tex]{subfiles}
+
+\begin{document}
+
+\section*{1D-2}
+
+\problem{
+Find the area of the triangle in space having its vertices at the points\\
+$P : (2,0,1)$, $Q : (3,1,0)$, $R : (-1,1,-1)$.}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[3d view = {30}{5}]
+
+    \draw[->, i, thin] (0,0,0) -- (1,0,0);
+    \draw[->, j, thin] (0,0,0) -- (0,1,0);
+    \draw[->, k, thin] (0,0,0) -- (0,0,1);
+
+    \fill (2,0,1) coordinate (P) circle (1pt);
+    \fill (3,1,0) coordinate (Q) circle (1pt);
+    \fill (-1,1,-1) coordinate (R) circle (1pt);
+    
+    \fill[blue, opacity=0.2] (P) -- (Q) -- (R) -- cycle;
+    \draw[blue] (P) -- (Q) -- (R) -- cycle;
+    
+\end{tikzpicture}
+\caption{Area of triangle $PQR$}
+\end{figure}
+
+\end{document}
