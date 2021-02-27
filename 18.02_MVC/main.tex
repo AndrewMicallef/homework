@@ -1,12 +1,13 @@
 \documentclass{report}
 
 \usepackage{subfiles}
-
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{siunitx}
 
 \usepackage{xcolor}
+\usepackage{array}
+
 \usepackage{tikz}
 \usetikzlibrary{angles,
                 intersections, 
@@ -14,6 +15,7 @@
                 through,
                 backgrounds,
                 perspective,
+                3d,
                 quotes}
 
 \usepackage{titlesec}
@@ -44,12 +46,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Math shortcuts
-\newcommand{\bi}{\vec{i}}
-\newcommand{\bj}{\vec{j}}
-\newcommand{\bk}{\vec{k}}
+\newcommand{\bi}{{\color{i}\vec{i}}}
+\newcommand{\bj}{{\color{j}\vec{j}}}
+\newcommand{\bk}{{\color{k}\vec{k}}}
 
 \newcommand\dir[1]{\hat{#1}}
 %\renewcommand\vec[1]{\mathbf{#1}}
+
+\newcommand\Reals{\mathbb{R}}
 
 %--------------------------------------------------
 

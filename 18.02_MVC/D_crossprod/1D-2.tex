@@ -7,24 +7,130 @@
 \problem{
 Find the area of the triangle in space having its vertices at the points\\
 $P : (2,0,1)$, $Q : (3,1,0)$, $R : (-1,1,-1)$.}
+{
+\def \A [#1]{{\color{1}#1}}
+\def \B [#1]{{\color{2}#1}}
+\def \vecA {\A[\vec{A}]}
+\def \vecB {\B[\vec{B}]}
 
-\begin{figure}[h]
+We can represent the triangle $PQR$ with two vectors, $\vecA$ and $\vecB$,
+where $\vecA = Q - P = <1,1,-1>$ and $\vec(B) = R - P = <-3, 1, 0>$.
+The two vectors combine to form a parallelogram whose area can be computed by
+the magnitude of the cross product (ie $|\vecA \times \vecB|$). Notice that
+the area of $PQR$ is half that of the parallelogram spanned by $\vecA$ and 
+$\vecB$.
+
+We can compute the cross product as the determinant of the psuedomatrix
+\[
+\vecA \times \vecB = 
+\begin{vmatrix}
+       \bi     &    \bj    &   \bk     \\
+       \A[1]   &    \A[1]  &   \A[-1]   \\
+       \B[-3]  &    \B[1]  &   \B[0]    \\
+\end{vmatrix}
+.\]
+%
+Cofactor expansion across the first row yields,
+\[
+\bi 
+\begin{vmatrix}
+    \A[1] & \A[-1]\\
+    \B[1] & \B[0]\\
+\end{vmatrix}
+-
+\bj
+\begin{vmatrix}
+    \A[1] & \A[-1]\\
+    \B[-3] & \B[0]\\
+\end{vmatrix}
++
+\bk
+\begin{vmatrix}
+    \A[1] & \A[1]\\
+    \B[-3] & \B[1]\\
+\end{vmatrix}
+.\]
+%
+Which reduces to 
+\[(\A[1]\times\B[0] - \A[-1]\times\B[1]) \bi
+-(\A[1]\times\B[0] - \A[-1]\times\B[-3]) \bj
++(\A[1]\times\B[1] - \A[1]\times\B[-3]) \bk
+\]
+\begin{align*}
+&= 
+(0 - -1) \bi
+-(0 - 3) \bj
++(1 - -3) \bk
+\\
+&= \bi + 3\bj + 4\bk\\
+\vecA \times \vecB &= {\color{3}<1, 3, 4>}.
+\end{align*}
+To get the area of the triangle we first compute the area of the parallelogram,
+which is the same as taking the magnitude of the cross product. The parallelogram
+spanned by $\vecA$ and $\vecB$ is equivalent to two triangles similar to 
+$PQR$ mirrored around $RQ$. So half the area of the parallelogram is the area of
+$PQR$.
+\begin{align*}
+\frac{1}{2}|<1, 3, 4>| &= \frac{1}{2}\sqrt{1^2 + 3^2 + 4^2}\\
+&= \frac{1}{2}\sqrt{1 + 9 + 16}\\
+&= \frac{1}{2}\sqrt{26}
+\end{align*}
+
+\begin{figure}
 \centering
-\begin{tikzpicture}[3d view = {30}{5}]
+\begin{tikzpicture}[scale= 2, 3d view = {30}{30}]
 
-    \draw[->, i, thin] (0,0,0) -- (1,0,0);
-    \draw[->, j, thin] (0,0,0) -- (0,1,0);
-    \draw[->, k, thin] (0,0,0) -- (0,0,1);
+    \coordinate (P) at (2,0,1);
+    \coordinate (Q) at (3,1,0);
+    \coordinate (R) at (-1,1,-1);
 
-    \fill (2,0,1) coordinate (P) circle (1pt);
-    \fill (3,1,0) coordinate (Q) circle (1pt);
-    \fill (-1,1,-1) coordinate (R) circle (1pt);
+    \coordinate (A) at ($(Q) - (P)$);
+    \coordinate (B) at ($(R) - (P)$);
+    \coordinate (AxB) at (1,3,4);
     
-    \fill[blue, opacity=0.2] (P) -- (Q) -- (R) -- cycle;
+    
+    \coordinate (i) at (1,0,0);
+    \coordinate (j) at (0,1,0);
+    \coordinate (k) at (0,0,1);
+
+    \begin{scope}[canvas is xy plane at z=0, opacity =.75]
+        \draw[step=.25, ultra thin, i!50!j] (-1.9,-1.9) grid (1.9,1.9);
+        \draw[step=1, very thin, i!50!j] (-1.9,-1.9) grid (1.9,1.9);
+    \end{scope}
+    \begin{scope}[canvas is zy plane at x=0, opacity = .75]
+        \draw[step=.25, ultra thin, k!50!j] (-1.9,-1.9) grid (1.9,1.9);
+        \draw[step=1, very thin, k!50!j] (-1.9,-1.9) grid (1.9,1.9);
+    \end{scope}
+
+    %draw basis vectors
+    \draw[->, semithick, i] (0,0,0) -- (i);
+    \draw[->, semithick, j] (0,0,0) -- (j);
+    \draw[->, semithick, k] (0,0,0) -- (k);
+
+    %draw triangle
+    \fill[blue, opacity=0.1] (P) -- (Q) -- (R) -- cycle;
     \draw[blue] (P) -- (Q) -- (R) -- cycle;
     
+    \foreach \p in {P,Q,R}{
+        \fill (\p) circle (1pt);
+    }
+    
+    \node at (P) [above=2pt]{$P$};
+    \node at (Q) [right=2pt]{$Q$};
+    \node at (R) [left=2pt]{$R$};
+    
+    \draw[->, 1, semithick] (P) --node[above, midway]{$\vecA$}++(A);
+    \draw[->, 2, semithick] (P) --node[above, midway]{$\vecB$}++(B);
+    \draw[->, 1, thick] (R) --++(A);
+    \draw[->, 2, thick] (Q) --++(B);
+    
+    \draw[->, 3, thick] ($(R)!.5!(Q)$) --node[above, midway, sloped]{$\vec{A}\times\vec{B}$}++(AxB);
+    
+    
 \end{tikzpicture}
-\caption{Area of triangle $PQR$}
+\caption{Using the cross product to compute the area of a triangle in $\Reals^3$}
 \end{figure}
+
+}
 
 \end{document}
